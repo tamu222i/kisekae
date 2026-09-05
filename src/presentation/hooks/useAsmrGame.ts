@@ -133,9 +133,20 @@ export function useAsmrGame(
     }
   }, [studio, useCases]);
 
+  // Toggle auto collection pause/resume
+  const toggleAutoCollect = useCallback(async () => {
+    if (!studio) return;
+    try {
+      await useCases.toggleAutoCollect(studio);
+      setStudio(AsmrStudio.fromJSON(studio.toJSON()));
+    } catch (err) {
+      console.error('Failed to toggle auto collector:', err);
+    }
+  }, [studio, useCases]);
+
   // Auto collect tick
   useEffect(() => {
-    if (!studio || studio.autoCollectorLevel <= 0) return;
+    if (!studio || studio.autoCollectorLevel <= 0 || !studio.isAutoCollectEnabled) return;
 
     const interval = setInterval(async () => {
       try {
@@ -150,10 +161,11 @@ export function useAsmrGame(
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [studio?.autoCollectorLevel, studio?.activeToyId, useCases]);
+  }, [studio?.autoCollectorLevel, studio?.activeToyId, studio?.isAutoCollectEnabled, useCases]);
 
   const tapPowerUpgradeCost = studio ? studio.getTapPowerUpgradeCost() : 25;
   const autoCollectorUpgradeCost = studio ? studio.getAutoCollectorUpgradeCost() : 50;
+  const isAutoCollectEnabled = studio ? studio.isAutoCollectEnabled : true;
   const coinsPerSec = studio && activeToy ? studio.getCoinsPerSecond(activeToy) : 0;
 
   return {
@@ -168,6 +180,8 @@ export function useAsmrGame(
     selectToy,
     upgradeTapPower,
     upgradeAutoCollector,
+    toggleAutoCollect,
+    isAutoCollectEnabled,
     tapPowerUpgradeCost,
     autoCollectorUpgradeCost,
     coinsPerSec,

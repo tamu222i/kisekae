@@ -7,6 +7,8 @@ export interface AsmrUpgradePanelProps {
   autoCollectorUpgradeCost: number;
   onUpgradeAutoCollector: () => void;
   coinsPerSec: number;
+  isAutoCollectEnabled?: boolean;
+  onToggleAutoCollect?: () => void;
   className?: string;
 }
 
@@ -19,6 +21,8 @@ export function AsmrUpgradePanel({
   autoCollectorUpgradeCost,
   onUpgradeAutoCollector,
   coinsPerSec,
+  isAutoCollectEnabled = true,
+  onToggleAutoCollect,
   className = '',
 }: AsmrUpgradePanelProps) {
   const canAffordTap = coins >= tapPowerUpgradeCost;
@@ -31,7 +35,7 @@ export function AsmrUpgradePanel({
           <span>⚡</span> タイクーン強化ショップ
         </h4>
         <div className="flex items-center gap-2 text-xs font-semibold text-purple-700">
-          <span>自動: +{coinsPerSec}🪙/秒</span>
+          <span>自動: {isAutoCollectEnabled ? `+${coinsPerSec}🪙/秒` : '⏸️ 停止中'}</span>
         </div>
       </div>
 
@@ -81,6 +85,25 @@ export function AsmrUpgradePanel({
             <p className="text-xs text-cyan-700/80 mt-1">
               放置しても自動でコインを回収！
             </p>
+
+            {autoCollectorLevel > 0 && onToggleAutoCollect && (
+              <div className="flex items-center justify-between mt-2 pt-2 border-t border-cyan-200/60">
+                <span className="text-[11px] font-bold text-cyan-900">
+                  状態: {isAutoCollectEnabled ? '🟢 稼働中' : '⏸️ 停止中'}
+                </span>
+                <button
+                  type="button"
+                  onClick={onToggleAutoCollect}
+                  className={`px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all shadow-sm cursor-pointer active:scale-95 ${
+                    isAutoCollectEnabled
+                      ? 'bg-amber-100 hover:bg-amber-200 text-amber-900 border border-amber-300'
+                      : 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-200'
+                  }`}
+                >
+                  {isAutoCollectEnabled ? '⏸️ 自動収集を止める' : '▶️ 収集を再開する'}
+                </button>
+              </div>
+            )}
           </div>
 
           <button

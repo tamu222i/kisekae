@@ -135,4 +135,28 @@ describe('useAsmrGame hook', () => {
 
     expect(result.current.activeToy?.id).toBe('toy_soap_cutting');
   });
+
+  it('toggles auto collection pause and resume', async () => {
+    const { result } = renderHook(() =>
+      useAsmrGame(toyRepo, studioStorage, mockSoundPlayer)
+    );
+
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    expect(result.current.isAutoCollectEnabled).toBe(true);
+
+    await act(async () => {
+      await result.current.toggleAutoCollect();
+    });
+
+    expect(result.current.isAutoCollectEnabled).toBe(false);
+
+    await act(async () => {
+      await result.current.toggleAutoCollect();
+    });
+
+    expect(result.current.isAutoCollectEnabled).toBe(true);
+  });
 });

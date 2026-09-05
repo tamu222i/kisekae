@@ -51,4 +51,49 @@ describe('AsmrUpgradePanel component', () => {
     fireEvent.click(buttons[0]);
     expect(onUpgradeTapMock).toHaveBeenCalled();
   });
+
+  it('renders pause/stop button when autoCollectorLevel > 0 and handles toggling', () => {
+    const onUpgradeTapMock = vi.fn();
+    const onUpgradeAutoMock = vi.fn();
+    const onToggleAutoMock = vi.fn();
+
+    const { rerender } = render(
+      <AsmrUpgradePanel
+        coins={100}
+        tapPowerLevel={1}
+        tapPowerUpgradeCost={25}
+        onUpgradeTapPower={onUpgradeTapMock}
+        autoCollectorLevel={1}
+        autoCollectorUpgradeCost={100}
+        onUpgradeAutoCollector={onUpgradeAutoMock}
+        coinsPerSec={5}
+        isAutoCollectEnabled={true}
+        onToggleAutoCollect={onToggleAutoMock}
+      />
+    );
+
+    const pauseBtn = screen.getByRole('button', { name: /一時停止|止める/i });
+    expect(pauseBtn).toBeInTheDocument();
+    fireEvent.click(pauseBtn);
+    expect(onToggleAutoMock).toHaveBeenCalledTimes(1);
+
+    // Rerender as paused (isAutoCollectEnabled = false)
+    rerender(
+      <AsmrUpgradePanel
+        coins={100}
+        tapPowerLevel={1}
+        tapPowerUpgradeCost={25}
+        onUpgradeTapPower={onUpgradeTapMock}
+        autoCollectorLevel={1}
+        autoCollectorUpgradeCost={100}
+        onUpgradeAutoCollector={onUpgradeAutoMock}
+        coinsPerSec={0}
+        isAutoCollectEnabled={false}
+        onToggleAutoCollect={onToggleAutoMock}
+      />
+    );
+
+    const resumeBtn = screen.getByRole('button', { name: /再開/i });
+    expect(resumeBtn).toBeInTheDocument();
+  });
 });

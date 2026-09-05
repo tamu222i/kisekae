@@ -40,6 +40,8 @@ export function AsmrGameView({
     selectToy,
     upgradeTapPower,
     upgradeAutoCollector,
+    toggleAutoCollect,
+    isAutoCollectEnabled,
     tapPowerUpgradeCost,
     autoCollectorUpgradeCost,
     coinsPerSec,
@@ -85,8 +87,12 @@ export function AsmrGameView({
 
           <div className="flex flex-col items-center sm:items-start">
             <span className="text-[11px] text-purple-500 font-semibold">放置収入</span>
-            <span className="text-sm sm:text-base font-extrabold text-cyan-600">
-              ⚡ +{coinsPerSec}🪙/秒
+            <span
+              className={`text-sm sm:text-base font-extrabold ${
+                isAutoCollectEnabled ? 'text-cyan-600' : 'text-slate-400'
+              }`}
+            >
+              {isAutoCollectEnabled ? `⚡ +${coinsPerSec}🪙/秒` : '⏸️ 停止中'}
             </span>
           </div>
 
@@ -131,6 +137,8 @@ export function AsmrGameView({
           autoCollectorUpgradeCost={autoCollectorUpgradeCost}
           onUpgradeAutoCollector={upgradeAutoCollector}
           coinsPerSec={coinsPerSec}
+          isAutoCollectEnabled={isAutoCollectEnabled}
+          onToggleAutoCollect={toggleAutoCollect}
         />
 
         <AsmrToySelector
