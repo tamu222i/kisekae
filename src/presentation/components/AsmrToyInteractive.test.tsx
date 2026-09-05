@@ -2,6 +2,9 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { AsmrToyInteractive } from './AsmrToyInteractive';
 import { DEFAULT_ASMR_TOYS } from '../../infrastructure/assets/asmrToysData';
+import { Outfit } from '../../domain/models/Outfit';
+import { Item } from '../../domain/models/Item';
+import { SlotCategory } from '../../domain/models/SlotCategory';
 
 describe('AsmrToyInteractive component', () => {
   it('renders bubble wrap toy and handles clicks', () => {
@@ -66,5 +69,36 @@ describe('AsmrToyInteractive component', () => {
     );
 
     expect(screen.getByText(iceToy.name)).toBeInTheDocument();
+  });
+
+  it('renders chibi avatar fighter on stage when outfit is passed and reacts to taps', () => {
+    const onTapMock = vi.fn();
+    const bubbleToy = DEFAULT_ASMR_TOYS[0];
+
+    const body = new Item({
+      id: 'body_1',
+      name: 'からだ',
+      slotCategory: SlotCategory.BASE_BODY,
+      svgContent: '<path id="svg-body"/>',
+    });
+    const outfit = Outfit.create({ baseBody: body });
+
+    render(
+      <AsmrToyInteractive
+        toy={bubbleToy}
+        onTap={onTapMock}
+        lastEarned={2}
+        outfit={outfit}
+      />
+    );
+
+    const fighter = screen.getByTestId('asmr-avatar-fighter');
+    expect(fighter).toBeInTheDocument();
+
+    // Tap on container with coordinates
+    const container = screen.getByTestId('asmr-toy-interactive');
+    fireEvent.click(container, { clientX: 180, clientY: 220 });
+
+    expect(onTapMock).toHaveBeenCalled();
   });
 });

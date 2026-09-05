@@ -1,11 +1,14 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { AsmrToy } from '../../domain/models/AsmrToy';
+import { Outfit } from '../../domain/models/Outfit';
+import { CharacterPreview } from './CharacterPreview';
 
 export interface AsmrToyInteractiveProps {
   toy: AsmrToy | null;
   onTap: () => void;
   lastEarned?: number;
   className?: string;
+  outfit?: Outfit | null;
 }
 
 interface FloatingEffect {
@@ -15,15 +18,40 @@ interface FloatingEffect {
   amount: number;
 }
 
+interface HitBurst {
+  id: number;
+  x: number;
+  y: number;
+  text: string;
+  color: string;
+}
+
 export function AsmrToyInteractive({
   toy,
   onTap,
   lastEarned = 1,
   className = '',
+  outfit,
 }: AsmrToyInteractiveProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [floatingEffects, setFloatingEffects] = useState<FloatingEffect[]>([]);
   const effectCounter = useRef(0);
+
+  // Avatar Fighter dynamic position, motion & hit bursts
+  const [fighterPos, setFighterPos] = useState<{ x: number; y: number }>({ x: 50, y: 75 });
+  const [fighterFacing, setFighterFacing] = useState<'left' | 'right'>('right');
+  const [fighterMotion, setFighterMotion] = useState<'idle' | 'punch' | 'kick'>('idle');
+  const [hitBursts, setHitBursts] = useState<HitBurst[]>([]);
+  const burstCounter = useRef(0);
+  const motionTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (motionTimerRef.current) {
+        clearTimeout(motionTimerRef.current);
+      }
+    };
+  }, []);
 
   // Toy-specific states
   const [poppedBubbles, setPoppedBubbles] = useState<Set<number>>(new Set());
@@ -33,7 +61,7 @@ export function AsmrToyInteractive({
   const [pressedKey, setPressedKey] = useState<number | null>(null);
   const [pulseActive, setPulseActive] = useState(false);
 
-  // Common tap handler with floating coins & haptics
+  // Common tap handler with floating coins, avatar fighter attack, & comic hits
   const triggerTap = useCallback(
     (clientX?: number, clientY?: number) => {
       onTap();
@@ -46,20 +74,56 @@ export function AsmrToyInteractive({
         navigator.vibrate?.(12);
       }
 
-      // Calculate relative position for floating particle
+      // Calculate relative position for floating particle and fighter movement
       if (containerRef.current && clientX !== undefined && clientY !== undefined) {
         const rect = containerRef.current.getBoundingClientRect();
         const x = clientX - rect.left;
         const y = clientY - rect.top;
+
+        // 1. Floating Coin Particle
         const id = ++effectCounter.current;
         setFloatingEffects((prev) => [...prev, { id, x, y, amount: lastEarned }]);
-
         setTimeout(() => {
           setFloatingEffects((prev) => prev.filter((eff) => eff.id !== id));
         }, 700);
+
+        // 2. Avatar Fighter Movement & Martial Arts Strike
+        const targetXPct = Math.max(15, Math.min(85, (x / rect.width) * 100));
+        const targetYPct = Math.max(25, Math.min(85, (y / rect.height) * 100));
+
+        setFighterFacing(targetXPct >= fighterPos.x ? 'right' : 'left');
+        setFighterPos({ x: targetXPct, y: targetYPct });
+
+        const strikeMotion: 'punch' | 'kick' = Math.random() > 0.45 ? 'punch' : 'kick';
+        setFighterMotion(strikeMotion);
+
+        if (motionTimerRef.current) {
+          clearTimeout(motionTimerRef.current);
+        }
+        motionTimerRef.current = setTimeout(() => {
+          setFighterMotion('idle');
+        }, 320);
+
+        // 3. Comic Hit Impact Burst
+        const burstTexts = [
+          { text: '💥 POW!', color: 'bg-amber-400 text-purple-950 border-amber-300' },
+          { text: '⚡ KICK!', color: 'bg-rose-500 text-white border-rose-300' },
+          { text: '💥 BAM!', color: 'bg-orange-400 text-purple-950 border-orange-200' },
+          { text: '🥊 HIT!', color: 'bg-purple-600 text-white border-purple-300' },
+          { text: '✨ SMASH!', color: 'bg-cyan-400 text-cyan-950 border-cyan-200' },
+        ];
+        const chosen = burstTexts[Math.floor(Math.random() * burstTexts.length)];
+        const bId = ++burstCounter.current;
+        setHitBursts((prev) => [
+          ...prev,
+          { id: bId, x, y, text: chosen.text, color: chosen.color },
+        ]);
+        setTimeout(() => {
+          setHitBursts((prev) => prev.filter((b) => b.id !== bId));
+        }, 450);
       }
     },
-    [onTap, lastEarned]
+    [onTap, lastEarned, fighterPos.x]
   );
 
   if (!toy) {
@@ -173,6 +237,53 @@ export function AsmrToyInteractive({
           </div>
         ))}
       </div>
+
+      {/* Comic Hit Bursts Layer */}
+      <div className="absolute inset-0 pointer-events-none z-35 overflow-hidden">
+        {hitBursts.map((burst) => (
+          <div
+            key={burst.id}
+            style={{ left: `${burst.x}px`, top: `${burst.y}px` }}
+            className={`absolute -translate-x-1/2 -translate-y-1/2 px-2.5 py-1 text-xs sm:text-sm font-black rounded-xl border-2 shadow-lg animate-comic-hit flex items-center gap-1 select-none ${burst.color}`}
+          >
+            <span>{burst.text}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Interactive Stage Avatar Fighter */}
+      {outfit && (
+        <div
+          data-testid="asmr-avatar-fighter"
+          style={{
+            left: `${fighterPos.x}%`,
+            top: `${fighterPos.y}%`,
+          }}
+          className="absolute z-25 pointer-events-none transition-all duration-200 ease-out select-none flex flex-col items-center -translate-x-1/2 -translate-y-1/2"
+        >
+          {/* Tiny action bubble during strike */}
+          {fighterMotion !== 'idle' && (
+            <div className="absolute -top-7 px-2 py-0.5 bg-purple-900/85 text-white font-black text-[10px] rounded-full shadow-md animate-bounce border border-purple-300/40 whitespace-nowrap">
+              {fighterMotion === 'punch' ? '👊 オラッ!' : '🦵 トウッ!'}
+            </div>
+          )}
+          {/* Chibi avatar preview (flipped if facing left) */}
+          <div
+            style={{
+              transform: `scaleX(${fighterFacing === 'left' ? -1 : 1})`,
+            }}
+            className="w-16 h-22 sm:w-20 sm:h-28 transition-transform duration-100 flex items-center justify-center filter drop-shadow-[0_5px_8px_rgba(0,0,0,0.3)]"
+          >
+            <CharacterPreview
+              outfit={outfit}
+              motion={fighterMotion}
+              includeBackground={false}
+            />
+          </div>
+          {/* Avatar Shadow Pedestal */}
+          <div className="w-10 sm:w-12 h-2 bg-purple-950/20 rounded-full blur-[1px] -mt-1" />
+        </div>
+      )}
 
       {/* Main Interactive Stage for Toy */}
       <div className="relative flex-1 w-full flex items-center justify-center my-2">

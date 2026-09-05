@@ -1,12 +1,13 @@
-import React, { useRef, useState, useMemo } from 'react';
+import React, { useRef, useState, useMemo, useCallback, useEffect } from 'react';
 import { createDefaultItemRepository } from './infrastructure/assets/itemsData';
 import { useKisekaeGame } from './presentation/hooks/useKisekaeGame';
-import { CharacterPreview } from './presentation/components/CharacterPreview';
+import { CharacterPreview, CharacterMotion } from './presentation/components/CharacterPreview';
 import { CategoryTabs } from './presentation/components/CategoryTabs';
 import { ItemCatalogGrid } from './presentation/components/ItemCatalogGrid';
 import { ActionToolbar } from './presentation/components/ActionToolbar';
 import { CanvasImageExporter } from './infrastructure/export/CanvasImageExporter';
 import { AsmrGameView } from './presentation/components/AsmrGameView';
+import { SlotCategory } from './domain/models/SlotCategory';
 import { Heart, Sparkles, Headphones, Shirt } from 'lucide-react';
 
 export type GameMode = 'kisekae' | 'asmr';
@@ -18,6 +19,12 @@ export const App: React.FC = () => {
   const [gameMode, setGameMode] = useState<GameMode>('kisekae');
   const [isExporting, setIsExporting] = useState<boolean>(false);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
+
+  // Avatar motion & dress-up twirl reactions
+  const [characterMotion, setCharacterMotion] = useState<CharacterMotion>('idle');
+  const [characterReaction, setCharacterReaction] = useState<string | null>(null);
+  const motionTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const reactionTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const {
     outfit,
@@ -40,13 +47,75 @@ export const App: React.FC = () => {
     }, 2500);
   };
 
+  const triggerDressUpTwirl = useCallback((customReaction?: string) => {
+    setCharacterMotion('twirl');
+
+    const reactions = [
+      'これカワイイ！💕',
+      '似合ってるかな？✨',
+      'ばっちり決まった！💫',
+      '新しいコーデ完成！🎀',
+      'お気に入りの一着！💖',
+      'すてき〜！👗',
+    ];
+    const text = customReaction || reactions[Math.floor(Math.random() * reactions.length)];
+    setCharacterReaction(text);
+
+    if (motionTimerRef.current) clearTimeout(motionTimerRef.current);
+    motionTimerRef.current = setTimeout(() => {
+      setCharacterMotion('idle');
+    }, 650);
+
+    if (reactionTimerRef.current) clearTimeout(reactionTimerRef.current);
+    reactionTimerRef.current = setTimeout(() => {
+      setCharacterReaction(null);
+    }, 2200);
+  }, []);
+
+  // Periodic lively idle micro-motion every 12 seconds when in idle mode
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCharacterMotion((current) => {
+        if (current === 'idle') {
+          setTimeout(() => setCharacterMotion('idle'), 650);
+          return 'twirl';
+        }
+        return current;
+      });
+    }, 12000);
+
+    return () => {
+      clearInterval(interval);
+      if (motionTimerRef.current) clearTimeout(motionTimerRef.current);
+      if (reactionTimerRef.current) clearTimeout(reactionTimerRef.current);
+    };
+  }, []);
+
+  const handleEquipItem = useCallback(
+    async (itemId: string) => {
+      await equipItem(itemId);
+      triggerDressUpTwirl();
+    },
+    [equipItem, triggerDressUpTwirl]
+  );
+
+  const handleUnequipSlot = useCallback(
+    async (category: SlotCategory) => {
+      await unequipSlot(category);
+      triggerDressUpTwirl('すっきりチェンジ！✨');
+    },
+    [unequipSlot, triggerDressUpTwirl]
+  );
+
   const handleRandomize = async () => {
     await randomize();
+    triggerDressUpTwirl('✨ おまかせコーデ完成！');
     showNotification('✨ コーディネートをおまかせで変えました！');
   };
 
   const handleReset = async () => {
     await reset();
+    triggerDressUpTwirl('🔄 初期コーデに戻したよ');
     showNotification('🔄 初期コーディネートに戻しました');
   };
 
@@ -130,8 +199,25 @@ export const App: React.FC = () => {
         <main className="w-full max-w-5xl xl:max-w-6xl grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 items-start animate-fade-in">
           {/* Left: Character Preview & Actions */}
           <section className="md:col-span-5 md:sticky md:top-4 flex flex-col items-center gap-3 sm:gap-4 bg-white/70 backdrop-blur-md p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl shadow-sm border border-pink-100">
+            {/* Cute Dress-up Speech Bubble */}
+            <div className="h-7 flex items-center justify-center">
+              {characterReaction ? (
+                <div className="px-3 py-1 bg-pink-500 text-white font-black text-xs rounded-full shadow-md animate-fade-in flex items-center gap-1">
+                  <span>💬</span>
+                  <span>{characterReaction}</span>
+                </div>
+              ) : (
+                <span className="text-xs text-pink-400 font-medium">✨ タップで着せ替え！くるっと回るよ</span>
+              )}
+            </div>
+
             <div className="w-full flex items-center justify-center">
-              <CharacterPreview ref={svgRef} outfit={outfit} />
+              <CharacterPreview
+                ref={svgRef}
+                outfit={outfit}
+                motion={characterMotion}
+                showSparkles={characterMotion === 'twirl'}
+              />
             </div>
 
             <div className="w-full">
@@ -165,8 +251,8 @@ export const App: React.FC = () => {
                   selectedCategory={selectedCategory}
                   isEquipped={isEquipped}
                   isSlotEquipped={isSlotEquipped}
-                  onEquipItem={equipItem}
-                  onUnequipSlot={unequipSlot}
+                  onEquipItem={handleEquipItem}
+                  onUnequipSlot={handleUnequipSlot}
                 />
               )}
             </div>

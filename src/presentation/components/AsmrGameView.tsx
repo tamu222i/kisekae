@@ -122,6 +122,7 @@ export function AsmrGameView({
             toy={activeToy}
             onTap={tapActiveToy}
             lastEarned={lastEarned}
+            outfit={outfit}
           />
         </div>
       </div>

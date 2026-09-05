@@ -73,7 +73,7 @@ export function AvatarCompanion({
         }`}
       >
         <div className="w-[140px] sm:w-[170px] md:w-[200px] overflow-hidden rounded-2xl shadow-md border-2 border-purple-100 bg-gradient-to-b from-purple-50/60 to-pink-50/60">
-          <CharacterPreview outfit={outfit} />
+          <CharacterPreview outfit={outfit} motion={isBouncing ? 'punch' : 'idle'} />
         </div>
 
         {/* 2.5D Roblox-style Circular Shadow / Glow Pedestal */}

@@ -90,5 +90,25 @@ describe('Kisekae App Integration', () => {
       expect(screen.getByRole('tab', { name: /トップス/i })).toBeInTheDocument();
     });
   });
+
+  it('triggers twirl motion and speech bubble on outfit changes', async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByRole('button', { name: /おまかせ/i })).toBeInTheDocument();
+    });
+
+    const randomizeBtn = screen.getByRole('button', { name: /おまかせ/i });
+    fireEvent.click(randomizeBtn);
+
+    // Speech bubble with cute reaction should appear
+    await waitFor(() => {
+      expect(screen.getByText(/おまかせコーデ完成！/i)).toBeInTheDocument();
+    });
+
+    // Character preview container should have motion twirl
+    const previewContainer = screen.getByTestId('character-preview-container');
+    expect(previewContainer.getAttribute('data-motion')).toBe('twirl');
+  });
 });
 
