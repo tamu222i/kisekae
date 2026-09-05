@@ -137,4 +137,36 @@ describe('AsmrStudio Aggregate', () => {
     expect(restored.tapPowerLevel).toBe(3);
     expect(restored.autoCollectorLevel).toBe(2);
   });
+
+  it('can toggle auto-collection pause/resume state and stops collecting when disabled', () => {
+    const studio = AsmrStudio.create({
+      coins: 100,
+      totalTaps: 10,
+      activeToyId: 'toy_bubble_wrap',
+      unlockedToyIds: new Set(['toy_bubble_wrap']),
+      tapPowerLevel: 1,
+      autoCollectorLevel: 1,
+      isAutoCollectEnabled: true,
+    });
+
+    expect(studio.isAutoCollectEnabled).toBe(true);
+
+    // Stop auto-collection
+    studio.toggleAutoCollect();
+    expect(studio.isAutoCollectEnabled).toBe(false);
+
+    // When disabled, tickAutoCollect returns 0 and does not add coins
+    const earned = studio.tickAutoCollect(10, bubbleToy);
+    expect(earned).toBe(0);
+    expect(studio.coins).toBe(100);
+
+    // Resume auto-collection
+    studio.toggleAutoCollect();
+    expect(studio.isAutoCollectEnabled).toBe(true);
+
+    const resumedEarned = studio.tickAutoCollect(2, bubbleToy);
+    expect(resumedEarned).toBe(1);
+    expect(studio.coins).toBe(101);
+  });
 });
+

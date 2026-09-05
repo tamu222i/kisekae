@@ -7,6 +7,7 @@ export interface AsmrStudioProps {
   unlockedToyIds: Set<string>;
   tapPowerLevel: number;
   autoCollectorLevel: number;
+  isAutoCollectEnabled?: boolean;
 }
 
 export interface AsmrStudioJSON {
@@ -16,6 +17,7 @@ export interface AsmrStudioJSON {
   unlockedToyIds: string[];
   tapPowerLevel: number;
   autoCollectorLevel: number;
+  isAutoCollectEnabled?: boolean;
 }
 
 export class AsmrStudio {
@@ -25,6 +27,7 @@ export class AsmrStudio {
   private _unlockedToyIds: Set<string>;
   private _tapPowerLevel: number;
   private _autoCollectorLevel: number;
+  private _isAutoCollectEnabled: boolean;
 
   private constructor(props: AsmrStudioProps) {
     if (props.coins < 0) {
@@ -49,6 +52,7 @@ export class AsmrStudio {
     this._unlockedToyIds = new Set(props.unlockedToyIds);
     this._tapPowerLevel = props.tapPowerLevel;
     this._autoCollectorLevel = props.autoCollectorLevel;
+    this._isAutoCollectEnabled = props.isAutoCollectEnabled ?? true;
   }
 
   static create(props: AsmrStudioProps): AsmrStudio {
@@ -63,6 +67,7 @@ export class AsmrStudio {
       unlockedToyIds: new Set([initialToyId]),
       tapPowerLevel: 1,
       autoCollectorLevel: 0,
+      isAutoCollectEnabled: true,
     });
   }
 
@@ -88,6 +93,18 @@ export class AsmrStudio {
 
   get autoCollectorLevel(): number {
     return this._autoCollectorLevel;
+  }
+
+  get isAutoCollectEnabled(): boolean {
+    return this._isAutoCollectEnabled;
+  }
+
+  toggleAutoCollect(): void {
+    this._isAutoCollectEnabled = !this._isAutoCollectEnabled;
+  }
+
+  setAutoCollectEnabled(enabled: boolean): void {
+    this._isAutoCollectEnabled = enabled;
   }
 
   isToyUnlocked(toyId: string): boolean {
@@ -157,12 +174,12 @@ export class AsmrStudio {
   }
 
   getCoinsPerSecond(toy: AsmrToy): number {
-    if (this._autoCollectorLevel === 0) return 0;
+    if (!this._isAutoCollectEnabled || this._autoCollectorLevel === 0) return 0;
     return this._autoCollectorLevel * (toy.baseCoinYield * 0.5);
   }
 
   tickAutoCollect(seconds: number, toy: AsmrToy): number {
-    if (seconds <= 0 || this._autoCollectorLevel === 0) return 0;
+    if (!this._isAutoCollectEnabled || seconds <= 0 || this._autoCollectorLevel === 0) return 0;
     const rate = this.getCoinsPerSecond(toy);
     const earned = Math.floor(rate * seconds);
     this._coins += earned;
@@ -177,6 +194,7 @@ export class AsmrStudio {
       unlockedToyIds: Array.from(this._unlockedToyIds),
       tapPowerLevel: this._tapPowerLevel,
       autoCollectorLevel: this._autoCollectorLevel,
+      isAutoCollectEnabled: this._isAutoCollectEnabled,
     };
   }
 
@@ -188,6 +206,8 @@ export class AsmrStudio {
       unlockedToyIds: new Set(json.unlockedToyIds),
       tapPowerLevel: json.tapPowerLevel,
       autoCollectorLevel: json.autoCollectorLevel,
+      isAutoCollectEnabled: json.isAutoCollectEnabled ?? true,
     });
   }
 }
+

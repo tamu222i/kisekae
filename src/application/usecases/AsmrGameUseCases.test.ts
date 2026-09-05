@@ -145,4 +145,18 @@ describe('AsmrGameUseCases', () => {
     expect(earned).toBe(6); // 2 sec * 3 = 6
     expect(studio.coins).toBe(6);
   });
+
+  it('toggles auto collection pause/resume and persists to storage', async () => {
+    const studio = await useCases.loadOrCreateStudio('toy_bubble_wrap');
+    expect(studio.isAutoCollectEnabled).toBe(true);
+
+    const newState = await useCases.toggleAutoCollect(studio);
+    expect(newState).toBe(false);
+    expect(studio.isAutoCollectEnabled).toBe(false);
+
+    // Verify storage saved it
+    const loaded = await storage.load();
+    expect(loaded?.isAutoCollectEnabled).toBe(false);
+  });
 });
+

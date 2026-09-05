@@ -86,4 +86,11 @@ export class AsmrGameUseCases {
     const toy = await this.getActiveToy(studio);
     return studio.tickAutoCollect(deltaSeconds, toy);
   }
+
+  async toggleAutoCollect(studio: AsmrStudio): Promise<boolean> {
+    studio.toggleAutoCollect();
+    await this.saveStudio(studio);
+    return studio.isAutoCollectEnabled;
+  }
 }
+
