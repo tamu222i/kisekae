@@ -88,9 +88,9 @@ export const App: React.FC = () => {
       </header>
 
       {/* Main Container */}
-      <main className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+      <main className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 items-start">
         {/* Left: Character Preview & Actions */}
-        <section className="md:col-span-5 flex flex-col items-center gap-4 bg-white/70 backdrop-blur-md p-4 sm:p-5 rounded-3xl shadow-sm border border-pink-100">
+        <section className="md:col-span-5 flex flex-col items-center gap-3 sm:gap-4 bg-white/70 backdrop-blur-md p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl shadow-sm border border-pink-100">
           <div className="w-full flex items-center justify-center">
             <CharacterPreview ref={svgRef} outfit={outfit} />
           </div>
@@ -106,7 +106,7 @@ export const App: React.FC = () => {
         </section>
 
         {/* Right: Item Selectors & Category Tabs */}
-        <section className="md:col-span-7 flex flex-col gap-4 bg-white/70 backdrop-blur-md p-4 sm:p-5 rounded-3xl shadow-sm border border-pink-100 min-h-[500px]">
+        <section className="md:col-span-7 flex flex-col gap-3 sm:gap-4 bg-white/70 backdrop-blur-md p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl shadow-sm border border-pink-100 min-h-[360px] md:min-h-[500px]">
           {/* Tabs */}
           <CategoryTabs
             selectedCategory={selectedCategory}
