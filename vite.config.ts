@@ -11,6 +11,10 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  server: {
+    host: true, // 0.0.0.0にバインド（Codespaces / Dockerコンテナからのポートフォワーディングを有効化）
+    port: 5173,
+  },
   test: {
     globals: true,
     environment: 'jsdom',
