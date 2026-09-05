@@ -71,7 +71,7 @@ export function AsmrToySelector({
       </div>
 
       {/* Toy Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 max-h-[380px] overflow-y-auto pr-1">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
         {filteredToys.map((toy) => {
           const unlocked = isUnlocked(toy.id);
           const isActive = toy.id === activeToyId;

@@ -40,7 +40,7 @@ describe('CategoryTabs Component', () => {
     expect(onSelect).toHaveBeenCalledWith(SlotCategory.BOTTOMS);
   });
 
-  it('renders categories structured in 3 distinct rows to prevent text crushing', () => {
+  it('renders categories structured in 2 distinct rows of 5', () => {
     const onSelect = vi.fn();
     const { container } = render(
       <CategoryTabs
@@ -52,15 +52,13 @@ describe('CategoryTabs Component', () => {
 
     const tablist = container.querySelector('[role="tablist"]');
     expect(tablist).not.toBeNull();
-    // 3 row children
+    // 2 row children
     const rows = tablist?.children;
-    expect(rows?.length).toBe(3);
+    expect(rows?.length).toBe(2);
 
-    // Row 1 (clothes & shoes): 4 tabs
-    expect(rows?.[0].querySelectorAll('button[role="tab"]')).toHaveLength(4);
-    // Row 2 (hair & accessories): 3 tabs
-    expect(rows?.[1].querySelectorAll('button[role="tab"]')).toHaveLength(3);
-    // Row 3 (face & background): 3 tabs
-    expect(rows?.[2].querySelectorAll('button[role="tab"]')).toHaveLength(3);
+    // Row 1 (clothes, shoes, accessories): 5 tabs
+    expect(rows?.[0].querySelectorAll('button[role="tab"]')).toHaveLength(5);
+    // Row 2 (hair, face, background): 5 tabs
+    expect(rows?.[1].querySelectorAll('button[role="tab"]')).toHaveLength(5);
   });
 });
