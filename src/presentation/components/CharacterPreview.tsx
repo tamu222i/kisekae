@@ -23,7 +23,7 @@ export const CharacterPreview = forwardRef<SVGSVGElement, CharacterPreviewProps>
         <svg
           ref={ref}
           viewBox="0 0 300 400"
-          className="w-full max-w-[260px] sm:max-w-[300px] md:max-w-[340px] aspect-[3/4] drop-shadow-lg rounded-2xl overflow-hidden bg-white"
+          className="w-full max-w-[320px] sm:max-w-[380px] md:max-w-[440px] aspect-[3/4] drop-shadow-xl rounded-2xl overflow-hidden bg-white"
           xmlns="http://www.w3.org/2000/svg"
         >
           {items.map((item) => (

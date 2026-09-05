@@ -67,7 +67,7 @@ export const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-pink-100 flex flex-col items-center p-3 sm:p-6 text-slate-800">
       {/* Header */}
-      <header className="w-full max-w-4xl flex flex-wrap items-center justify-between gap-3 py-3 mb-4 border-b border-pink-200/60">
+      <header className="w-full max-w-5xl xl:max-w-6xl flex flex-wrap items-center justify-between gap-3 py-3 mb-4 border-b border-pink-200/60">
         <div className="flex items-center gap-2.5">
           <div className="w-10 h-10 bg-gradient-to-tr from-pink-500 to-purple-500 rounded-2xl flex items-center justify-center text-white shadow-md shadow-pink-200">
             {gameMode === 'kisekae' ? (
@@ -127,7 +127,7 @@ export const App: React.FC = () => {
 
       {/* Main Container - Conditional by Mode */}
       {gameMode === 'kisekae' ? (
-        <main className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 items-start animate-fade-in">
+        <main className="w-full max-w-5xl xl:max-w-6xl grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 items-start animate-fade-in">
           {/* Left: Character Preview & Actions */}
           <section className="md:col-span-5 flex flex-col items-center gap-3 sm:gap-4 bg-white/70 backdrop-blur-md p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl shadow-sm border border-pink-100">
             <div className="w-full flex items-center justify-center">
@@ -145,7 +145,7 @@ export const App: React.FC = () => {
           </section>
 
           {/* Right: Item Selectors & Category Tabs */}
-          <section className="md:col-span-7 flex flex-col gap-3 sm:gap-4 bg-white/70 backdrop-blur-md p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl shadow-sm border border-pink-100 min-h-[360px] md:min-h-[500px]">
+          <section className="md:col-span-7 flex flex-col gap-3 sm:gap-4 bg-white/70 backdrop-blur-md p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl shadow-sm border border-pink-100 min-h-[360px] md:min-h-[520px]">
             {/* Tabs */}
             <CategoryTabs
               selectedCategory={selectedCategory}
@@ -154,7 +154,7 @@ export const App: React.FC = () => {
             />
 
             {/* Items Grid */}
-            <div className="flex-1 overflow-y-auto max-h-[440px] pr-1">
+            <div className="flex-1 overflow-y-auto max-h-[520px] pr-1">
               {isLoading ? (
                 <div className="h-64 flex items-center justify-center text-pink-400 font-medium">
                   アイテムを読み込み中...
@@ -173,7 +173,7 @@ export const App: React.FC = () => {
           </section>
         </main>
       ) : (
-        <main className="w-full max-w-4xl animate-fade-in">
+        <main className="w-full max-w-5xl xl:max-w-6xl animate-fade-in">
           <AsmrGameView outfit={outfit} />
         </main>
       )}

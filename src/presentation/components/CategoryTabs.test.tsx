@@ -39,4 +39,28 @@ describe('CategoryTabs Component', () => {
     fireEvent.click(bottomsTab);
     expect(onSelect).toHaveBeenCalledWith(SlotCategory.BOTTOMS);
   });
+
+  it('renders categories structured in 3 distinct rows to prevent text crushing', () => {
+    const onSelect = vi.fn();
+    const { container } = render(
+      <CategoryTabs
+        selectedCategory={SlotCategory.TOPS}
+        onSelectCategory={onSelect}
+        isSlotEquipped={() => false}
+      />
+    );
+
+    const tablist = container.querySelector('[role="tablist"]');
+    expect(tablist).not.toBeNull();
+    // 3 row children
+    const rows = tablist?.children;
+    expect(rows?.length).toBe(3);
+
+    // Row 1 (clothes & shoes): 4 tabs
+    expect(rows?.[0].querySelectorAll('button[role="tab"]')).toHaveLength(4);
+    // Row 2 (hair & accessories): 3 tabs
+    expect(rows?.[1].querySelectorAll('button[role="tab"]')).toHaveLength(3);
+    // Row 3 (face & background): 3 tabs
+    expect(rows?.[2].querySelectorAll('button[role="tab"]')).toHaveLength(3);
+  });
 });
