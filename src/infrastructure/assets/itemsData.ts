@@ -111,6 +111,313 @@ export const ALL_ITEMS: readonly Item[] = [
       <circle cx="240" cy="320" r="2.5" fill="#fef08a" opacity="0.9"/>
     `,
   }),
+  new Item({
+    id: 'bg_cherry_blossom',
+    name: '舞い散る桜並木',
+    slotCategory: SlotCategory.BACKGROUND,
+    svgContent: `
+      <defs>
+        <linearGradient id="sakuraSky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#fdf2f8"/>
+          <stop offset="60%" stop-color="#fce7f3"/>
+          <stop offset="100%" stop-color="#fbcfe8"/>
+        </linearGradient>
+      </defs>
+      <rect width="300" height="400" fill="url(#sakuraSky)" rx="16"/>
+      <!-- Soft Sun Glow -->
+      <circle cx="230" cy="80" r="45" fill="#ffffff" opacity="0.6"/>
+      <!-- Distant Sakura trees silhouette -->
+      <path d="M 0 320 Q 50 280 120 310 Q 200 270 300 320 L 300 400 L 0 400 Z" fill="#f472b6" opacity="0.35"/>
+      <path d="M 0 350 Q 80 320 180 345 Q 250 330 300 360 L 300 400 L 0 400 Z" fill="#ec4899" opacity="0.25"/>
+      <!-- Floating Sakura Petals -->
+      <path d="M 40 60 C 35 50 45 45 50 55 C 55 65 45 70 40 60 Z" fill="#f472b6" opacity="0.85"/>
+      <path d="M 80 110 C 75 100 85 95 90 105 C 95 115 85 120 80 110 Z" fill="#f472b6" opacity="0.75" transform="rotate(25, 85, 110)"/>
+      <path d="M 240 70 C 235 60 245 55 250 65 C 255 75 245 80 240 70 Z" fill="#fda4af" opacity="0.9" transform="rotate(-30, 245, 70)"/>
+      <path d="M 270 140 C 265 130 275 125 280 135 C 285 145 275 150 270 140 Z" fill="#f472b6" opacity="0.8" transform="rotate(45, 275, 140)"/>
+      <path d="M 30 240 C 25 230 35 225 40 235 C 45 245 35 250 30 240 Z" fill="#fda4af" opacity="0.85" transform="rotate(15, 35, 240)"/>
+      <path d="M 260 270 C 255 260 265 255 270 265 C 275 275 265 280 260 270 Z" fill="#f472b6" opacity="0.8" transform="rotate(-20, 265, 270)"/>
+      <path d="M 70 330 C 65 320 75 315 80 325 C 85 335 75 340 70 330 Z" fill="#fda4af" opacity="0.9"/>
+      <circle cx="120" cy="90" r="2" fill="#ffffff" opacity="0.8"/>
+      <circle cx="210" cy="130" r="2.5" fill="#ffffff" opacity="0.8"/>
+    `,
+  }),
+  new Item({
+    id: 'bg_pastel_cloud_rainbow',
+    name: '虹とゆめかわ雲の国',
+    slotCategory: SlotCategory.BACKGROUND,
+    svgContent: `
+      <defs>
+        <linearGradient id="dreamSky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#e0e7ff"/>
+          <stop offset="50%" stop-color="#f5d0fe"/>
+          <stop offset="100%" stop-color="#fef08a"/>
+        </linearGradient>
+      </defs>
+      <rect width="300" height="400" fill="url(#dreamSky)" rx="16"/>
+      <!-- Soft Pastel Rainbow Arc -->
+      <path d="M -20 180 Q 150 -30 320 180" stroke="#f472b6" stroke-width="12" fill="none" opacity="0.5"/>
+      <path d="M -20 192 Q 150 -18 320 192" stroke="#fde047" stroke-width="12" fill="none" opacity="0.5"/>
+      <path d="M -20 204 Q 150 -6 320 204" stroke="#86efac" stroke-width="12" fill="none" opacity="0.5"/>
+      <path d="M -20 216 Q 150 6 320 216" stroke="#38bdf8" stroke-width="12" fill="none" opacity="0.5"/>
+      <path d="M -20 228 Q 150 18 320 228" stroke="#c084fc" stroke-width="12" fill="none" opacity="0.5"/>
+      <!-- Fluffy Cotton Clouds -->
+      <ellipse cx="60" cy="90" rx="35" ry="20" fill="#ffffff" opacity="0.9"/>
+      <ellipse cx="85" cy="80" rx="28" ry="22" fill="#ffffff" opacity="0.9"/>
+      <ellipse cx="230" cy="110" rx="40" ry="22" fill="#ffffff" opacity="0.9"/>
+      <ellipse cx="205" cy="100" rx="30" ry="20" fill="#ffffff" opacity="0.9"/>
+      <!-- Sparkle Stars -->
+      <polygon points="50,45 53,52 60,53 54,58 56,65 50,61 44,65 46,58 40,53 47,52" fill="#fde047"/>
+      <polygon points="250,60 252,66 258,67 253,71 255,77 250,73 245,77 247,71 242,67 248,66" fill="#fde047"/>
+      <circle cx="150" cy="40" r="2.5" fill="#ffffff"/>
+      <circle cx="100" cy="140" r="2" fill="#ffffff"/>
+      <circle cx="200" cy="150" r="2.5" fill="#ffffff"/>
+    `,
+  }),
+  new Item({
+    id: 'bg_tea_party',
+    name: 'アリスのガーデンティーパーティ',
+    slotCategory: SlotCategory.BACKGROUND,
+    svgContent: `
+      <defs>
+        <linearGradient id="gardenGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#dcfce7"/>
+          <stop offset="60%" stop-color="#f0fdf4"/>
+          <stop offset="100%" stop-color="#fef9c3"/>
+        </linearGradient>
+      </defs>
+      <rect width="300" height="400" fill="url(#gardenGrad)" rx="16"/>
+      <!-- Top Floral Vine Arch -->
+      <path d="M 0 40 Q 150 75 300 40" stroke="#15803d" stroke-width="4" fill="none"/>
+      <path d="M 0 30 Q 150 65 300 30" stroke="#22c55e" stroke-width="2.5" fill="none"/>
+      <!-- Roses on arch -->
+      <circle cx="40" cy="42" r="8" fill="#f43f5e"/>
+      <circle cx="40" cy="42" r="4" fill="#fda4af"/>
+      <circle cx="95" cy="54" r="7" fill="#fb7185"/>
+      <circle cx="150" cy="58" r="9" fill="#e11d48"/>
+      <circle cx="150" cy="58" r="4.5" fill="#fda4af"/>
+      <circle cx="205" cy="54" r="7" fill="#fb7185"/>
+      <circle cx="260" cy="42" r="8" fill="#f43f5e"/>
+      <circle cx="260" cy="42" r="4" fill="#fda4af"/>
+      <!-- Hanging Paper Lanterns -->
+      <line x1="70" y1="50" x2="70" y2="80" stroke="#78350f" stroke-width="1.2"/>
+      <ellipse cx="70" cy="90" rx="10" ry="12" fill="#fde047" stroke="#eab308" stroke-width="1"/>
+      <line x1="230" y1="50" x2="230" y2="80" stroke="#78350f" stroke-width="1.2"/>
+      <ellipse cx="230" cy="90" rx="10" ry="12" fill="#f472b6" stroke="#db2777" stroke-width="1"/>
+      <!-- Antique Hedge Border -->
+      <path d="M 0 370 Q 30 350 70 370 Q 110 350 150 370 Q 190 350 230 370 Q 270 350 300 370 L 300 400 L 0 400 Z" fill="#16a34a"/>
+    `,
+  }),
+  new Item({
+    id: 'bg_gothic_cathedral',
+    name: 'ゴシック大聖堂のステンドグラス',
+    slotCategory: SlotCategory.BACKGROUND,
+    svgContent: `
+      <defs>
+        <linearGradient id="cathedralGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0f172a"/>
+          <stop offset="60%" stop-color="#1e1b4b"/>
+          <stop offset="100%" stop-color="#2e1065"/>
+        </linearGradient>
+      </defs>
+      <rect width="300" height="400" fill="url(#cathedralGrad)" rx="16"/>
+      <!-- Gothic Arch Window Frame -->
+      <path d="M 50 220 L 50 120 Q 150 20 250 120 L 250 220 Z" fill="#1e293b" stroke="#64748b" stroke-width="3"/>
+      <!-- Stained Glass Jewel Panes -->
+      <path d="M 60 120 Q 150 35 240 120 L 150 120 Z" fill="#38bdf8" opacity="0.6"/>
+      <circle cx="150" cy="100" r="24" fill="#f43f5e" opacity="0.75" stroke="#facc15" stroke-width="1.5"/>
+      <polygon points="150,82 156,95 168,100 156,105 150,118 144,105 132,100 144,95" fill="#fde047"/>
+      <!-- Left & Right Panes -->
+      <rect x="65" y="130" width="30" height="80" fill="#a855f7" opacity="0.65"/>
+      <rect x="105" y="130" width="40" height="80" fill="#38bdf8" opacity="0.65"/>
+      <rect x="155" y="130" width="40" height="80" fill="#38bdf8" opacity="0.65"/>
+      <rect x="205" y="130" width="30" height="80" fill="#a855f7" opacity="0.65"/>
+      <!-- Warm Candles at bottom -->
+      <rect x="25" y="340" width="10" height="45" fill="#fef08a"/>
+      <ellipse cx="30" cy="336" rx="4" ry="7" fill="#f97316"/>
+      <rect x="265" y="340" width="10" height="45" fill="#fef08a"/>
+      <ellipse cx="270" cy="336" rx="4" ry="7" fill="#f97316"/>
+    `,
+  }),
+  new Item({
+    id: 'bg_cafe_terrace',
+    name: 'パリ風おしゃれオープンカフェ',
+    slotCategory: SlotCategory.BACKGROUND,
+    svgContent: `
+      <!-- Warm Wall Base -->
+      <rect width="300" height="400" fill="#fef3c7" rx="16"/>
+      <!-- Cobblestone Terrace Floor -->
+      <rect y="310" width="300" height="90" fill="#fed7aa"/>
+      <line x1="0" y1="340" x2="300" y2="340" stroke="#ea580c" stroke-width="1" opacity="0.3"/>
+      <line x1="0" y1="370" x2="300" y2="370" stroke="#ea580c" stroke-width="1" opacity="0.3"/>
+      <!-- Parisian Striped Awning -->
+      <path d="M 0 0 L 300 0 L 300 50 L 0 50 Z" fill="#ef4444"/>
+      <rect x="30" y="0" width="30" height="50" fill="#ffffff"/>
+      <rect x="90" y="0" width="30" height="50" fill="#ffffff"/>
+      <rect x="150" y="0" width="30" height="50" fill="#ffffff"/>
+      <rect x="210" y="0" width="30" height="50" fill="#ffffff"/>
+      <rect x="270" y="0" width="30" height="50" fill="#ffffff"/>
+      <path d="M 0 50 Q 15 62 30 50 Q 45 62 60 50 Q 75 62 90 50 Q 105 62 120 50 Q 135 62 150 50 Q 165 62 180 50 Q 195 62 210 50 Q 225 62 240 50 Q 255 62 270 50 Q 285 62 300 50 L 300 50 Z" fill="#ef4444"/>
+      <!-- Cafe Light Bulbs -->
+      <path d="M 10 70 Q 80 85 150 75 Q 220 85 290 70" stroke="#78350f" stroke-width="1.5" fill="none"/>
+      <circle cx="50" cy="78" r="4.5" fill="#fef08a" stroke="#f59e0b" stroke-width="1"/>
+      <circle cx="105" cy="80" r="4.5" fill="#fef08a" stroke="#f59e0b" stroke-width="1"/>
+      <circle cx="195" cy="80" r="4.5" fill="#fef08a" stroke="#f59e0b" stroke-width="1"/>
+      <circle cx="250" cy="78" r="4.5" fill="#fef08a" stroke="#f59e0b" stroke-width="1"/>
+    `,
+  }),
+  new Item({
+    id: 'bg_sweet_candy_shop',
+    name: 'スイーツパラダイス',
+    slotCategory: SlotCategory.BACKGROUND,
+    svgContent: `
+      <!-- Pastel Pink Sweet Wall -->
+      <rect width="300" height="400" fill="#ffe4e6" rx="16"/>
+      <!-- Diagonal Candy Stripes -->
+      <defs>
+        <pattern id="candyStripe" width="30" height="30" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="0" x2="0" y2="30" stroke="#fecdd3" stroke-width="12"/>
+        </pattern>
+      </defs>
+      <rect width="300" height="400" fill="url(#candyStripe)" opacity="0.6" rx="16"/>
+      <!-- Giant Swirl Lollipops -->
+      <g transform="translate(35, 80)">
+        <line x1="0" y1="20" x2="0" y2="70" stroke="#ffffff" stroke-width="4"/>
+        <circle cx="0" cy="20" r="22" fill="#f43f5e"/>
+        <circle cx="0" cy="20" r="16" fill="#fbcfe8"/>
+        <circle cx="0" cy="20" r="10" fill="#f43f5e"/>
+        <circle cx="0" cy="20" r="4" fill="#ffffff"/>
+      </g>
+      <g transform="translate(265, 90)">
+        <line x1="0" y1="20" x2="0" y2="70" stroke="#ffffff" stroke-width="4"/>
+        <circle cx="0" cy="20" r="20" fill="#38bdf8"/>
+        <circle cx="0" cy="20" r="14" fill="#bae6fd"/>
+        <circle cx="0" cy="20" r="8" fill="#38bdf8"/>
+        <circle cx="0" cy="20" r="3" fill="#ffffff"/>
+      </g>
+      <!-- Cute Macarons -->
+      <ellipse cx="45" cy="340" rx="16" ry="7" fill="#f472b6"/>
+      <rect x="29" y="340" width="32" height="4" rx="2" fill="#ffffff"/>
+      <ellipse cx="45" cy="346" rx="16" ry="7" fill="#f472b6"/>
+      <ellipse cx="255" cy="340" rx="16" ry="7" fill="#a7f3d0"/>
+      <rect x="239" y="340" width="32" height="4" rx="2" fill="#ffffff"/>
+      <ellipse cx="255" cy="346" rx="16" ry="7" fill="#a7f3d0"/>
+    `,
+  }),
+  new Item({
+    id: 'bg_underwater_aquarium',
+    name: 'きらめく海底アクアリウム',
+    slotCategory: SlotCategory.BACKGROUND,
+    svgContent: `
+      <defs>
+        <linearGradient id="oceanGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0284c7"/>
+          <stop offset="50%" stop-color="#0369a1"/>
+          <stop offset="100%" stop-color="#0c4a6e"/>
+        </linearGradient>
+      </defs>
+      <rect width="300" height="400" fill="url(#oceanGrad)" rx="16"/>
+      <!-- Sunbeam light rays -->
+      <polygon points="50,0 90,0 160,400 100,400" fill="#bae6fd" opacity="0.15"/>
+      <polygon points="170,0 210,0 270,400 220,400" fill="#bae6fd" opacity="0.15"/>
+      <!-- Floating Jellyfish -->
+      <g transform="translate(65, 80)">
+        <path d="M -15 0 C -15 -18 15 -18 15 0 Z" fill="#67e8f9" opacity="0.8"/>
+        <path d="M -10 2 Q -8 15 -10 25 M -3 2 Q 0 16 -2 25 M 3 2 Q 5 16 3 25 M 10 2 Q 8 15 10 25" stroke="#a5f3fc" stroke-width="1.2" fill="none"/>
+      </g>
+      <g transform="translate(245, 120)">
+        <path d="M -12 0 C -12 -14 12 -14 12 0 Z" fill="#f472b6" opacity="0.8"/>
+        <path d="M -8 2 Q -6 12 -8 20 M 0 2 Q 2 13 0 20 M 8 2 Q 6 12 8 20" stroke="#fbcfe8" stroke-width="1.2" fill="none"/>
+      </g>
+      <!-- Air Bubbles -->
+      <circle cx="45" cy="220" r="5" stroke="#ffffff" stroke-width="1.2" fill="none" opacity="0.7"/>
+      <circle cx="50" cy="180" r="3" stroke="#ffffff" stroke-width="1" fill="none" opacity="0.7"/>
+      <circle cx="260" cy="250" r="6" stroke="#ffffff" stroke-width="1.2" fill="none" opacity="0.7"/>
+      <circle cx="255" cy="210" r="3.5" stroke="#ffffff" stroke-width="1" fill="none" opacity="0.7"/>
+    `,
+  }),
+  new Item({
+    id: 'bg_heart_pattern',
+    name: 'レトロポップ・ハートグリッド',
+    slotCategory: SlotCategory.BACKGROUND,
+    svgContent: `
+      <defs>
+        <pattern id="heartCheck" width="40" height="40" patternUnits="userSpaceOnUse">
+          <rect width="20" height="20" fill="#fbcfe8"/>
+          <rect x="20" width="20" height="20" fill="#a7f3d0"/>
+          <rect y="20" width="20" height="20" fill="#a7f3d0"/>
+          <rect x="20" y="20" width="20" height="20" fill="#fbcfe8"/>
+          <!-- Heart in tile 1 -->
+          <path d="M 10 13 C 10 13 5 9 5 6 C 5 4 7 3 10 5 C 13 3 15 4 15 6 C 15 9 10 13 10 13 Z" fill="#ec4899" opacity="0.6"/>
+          <!-- Heart in tile 4 -->
+          <path d="M 30 33 C 30 33 25 29 25 26 C 25 24 27 23 30 25 C 33 23 35 24 35 26 C 35 29 30 33 30 33 Z" fill="#10b981" opacity="0.6"/>
+        </pattern>
+      </defs>
+      <rect width="300" height="400" fill="url(#heartCheck)" rx="16"/>
+    `,
+  }),
+  new Item({
+    id: 'bg_sunset_beach',
+    name: 'トワイライト・マジックアワー',
+    slotCategory: SlotCategory.BACKGROUND,
+    svgContent: `
+      <defs>
+        <linearGradient id="twilightGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#312e81"/>
+          <stop offset="35%" stop-color="#701a75"/>
+          <stop offset="65%" stop-color="#e11d48"/>
+          <stop offset="85%" stop-color="#f97316"/>
+          <stop offset="100%" stop-color="#fde047"/>
+        </linearGradient>
+      </defs>
+      <rect width="300" height="400" fill="url(#twilightGrad)" rx="16"/>
+      <!-- Setting Sun -->
+      <circle cx="150" cy="270" r="35" fill="#fef08a" opacity="0.85"/>
+      <!-- Sea Horizon -->
+      <rect y="295" width="300" height="105" fill="#1e1b4b" opacity="0.4"/>
+      <!-- Palm Leaves Silhouettes -->
+      <g fill="#18181b">
+        <path d="M 0 0 Q 60 30 80 80 Q 40 50 0 35 Z"/>
+        <path d="M 0 35 Q 70 70 85 120 Q 50 80 0 70 Z"/>
+        <path d="M 300 0 Q 240 30 220 80 Q 260 50 300 35 Z"/>
+        <path d="M 300 35 Q 230 70 215 120 Q 250 80 300 70 Z"/>
+      </g>
+      <!-- Twinkling twilight stars -->
+      <circle cx="60" cy="50" r="2" fill="#ffffff" opacity="0.9"/>
+      <circle cx="230" cy="40" r="2.5" fill="#ffffff" opacity="0.9"/>
+      <circle cx="120" cy="80" r="1.5" fill="#fef08a" opacity="0.8"/>
+    `,
+  }),
+  new Item({
+    id: 'bg_cyber_neon',
+    name: 'サイバーフューチャーネオン',
+    slotCategory: SlotCategory.BACKGROUND,
+    svgContent: `
+      <!-- Cyber Dark Void -->
+      <rect width="300" height="400" fill="#09090b" rx="16"/>
+      <!-- Perspective Neon Grid Floor -->
+      <defs>
+        <linearGradient id="neonFade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#06b6d4" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.8"/>
+        </linearGradient>
+      </defs>
+      <!-- Grid Lines -->
+      <line x1="0" y1="280" x2="300" y2="280" stroke="#ec4899" stroke-width="2"/>
+      <line x1="0" y1="305" x2="300" y2="305" stroke="#06b6d4" stroke-width="1.2"/>
+      <line x1="0" y1="335" x2="300" y2="335" stroke="#06b6d4" stroke-width="1.5"/>
+      <line x1="0" y1="370" x2="300" y2="370" stroke="#06b6d4" stroke-width="2"/>
+      <line x1="150" y1="280" x2="150" y2="400" stroke="#06b6d4" stroke-width="1.5"/>
+      <line x1="150" y1="280" x2="60" y2="400" stroke="#06b6d4" stroke-width="1.5"/>
+      <line x1="150" y1="280" x2="240" y2="400" stroke="#06b6d4" stroke-width="1.5"/>
+      <line x1="150" y1="280" x2="-30" y2="400" stroke="#06b6d4" stroke-width="1.5"/>
+      <line x1="150" y1="280" x2="330" y2="400" stroke="#06b6d4" stroke-width="1.5"/>
+      <!-- Cyber Neon Frame Corners -->
+      <polyline points="20,50 20,20 50,20" stroke="#ec4899" stroke-width="3" fill="none"/>
+      <polyline points="280,50 280,20 250,20" stroke="#06b6d4" stroke-width="3" fill="none"/>
+      <polyline points="20,240 20,270 50,270" stroke="#06b6d4" stroke-width="3" fill="none"/>
+      <polyline points="280,240 280,270 250,270" stroke="#ec4899" stroke-width="3" fill="none"/>
+    `,
+  }),
 
   // ==========================================
   // HAIR BACK (z-index: 20)
@@ -320,6 +627,265 @@ export const ALL_ITEMS: readonly Item[] = [
       </g>
     `,
   }),
+  new Item({
+    id: 'eyes_ruby_red',
+    name: '情熱ルビーアイ',
+    slotCategory: SlotCategory.EYES,
+    svgContent: `
+      <!-- Left Eye -->
+      <g>
+        <path d="M 124 107 Q 135 101 145 107" stroke="#0f172a" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <ellipse cx="135" cy="114" rx="7.5" ry="9" fill="#e11d48"/>
+        <ellipse cx="135" cy="116" rx="5" ry="6" fill="#9f1239"/>
+        <circle cx="133" cy="111" r="2.8" fill="#ffffff"/>
+        <circle cx="138" cy="117" r="1.5" fill="#ffffff"/>
+        <path d="M 126 98 Q 135 95 143 99" stroke="#991b1b" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </g>
+      <!-- Right Eye -->
+      <g>
+        <path d="M 155 107 Q 165 101 176 107" stroke="#0f172a" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <ellipse cx="165" cy="114" rx="7.5" ry="9" fill="#e11d48"/>
+        <ellipse cx="165" cy="116" rx="5" ry="6" fill="#9f1239"/>
+        <circle cx="163" cy="111" r="2.8" fill="#ffffff"/>
+        <circle cx="168" cy="117" r="1.5" fill="#ffffff"/>
+        <path d="M 157 99 Q 165 95 174 98" stroke="#991b1b" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </g>
+    `,
+  }),
+  new Item({
+    id: 'eyes_violet_mystic',
+    name: 'ミステリアスパープルアイ',
+    slotCategory: SlotCategory.EYES,
+    svgContent: `
+      <!-- Left Eye -->
+      <g>
+        <path d="M 124 106 Q 135 101 145 107" stroke="#1e1b4b" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+        <ellipse cx="135" cy="114" rx="7.5" ry="9" fill="#8b5cf6"/>
+        <ellipse cx="135" cy="115" rx="5" ry="6.5" fill="#4c1d95"/>
+        <polygon points="135,111 136,113 138,114 136,115 135,117 134,115 132,114 134,113" fill="#ffffff"/>
+        <circle cx="138" cy="118" r="1.3" fill="#c4b5fd"/>
+        <path d="M 126 98 Q 135 95 143 99" stroke="#6d28d9" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </g>
+      <!-- Right Eye -->
+      <g>
+        <path d="M 155 107 Q 165 101 176 106" stroke="#1e1b4b" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+        <ellipse cx="165" cy="114" rx="7.5" ry="9" fill="#8b5cf6"/>
+        <ellipse cx="165" cy="115" rx="5" ry="6.5" fill="#4c1d95"/>
+        <polygon points="165,111 166,113 168,114 166,115 165,117 164,115 162,114 164,113" fill="#ffffff"/>
+        <circle cx="168" cy="118" r="1.3" fill="#c4b5fd"/>
+        <path d="M 157 99 Q 165 95 174 98" stroke="#6d28d9" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </g>
+    `,
+  }),
+  new Item({
+    id: 'eyes_heart_pink',
+    name: 'ときめきハートアイ',
+    slotCategory: SlotCategory.EYES,
+    svgContent: `
+      <!-- Left Eye -->
+      <g>
+        <path d="M 124 107 Q 135 101 145 107" stroke="#1e293b" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <ellipse cx="135" cy="114" rx="7.5" ry="9" fill="#f472b6"/>
+        <ellipse cx="135" cy="115" rx="5" ry="6.5" fill="#db2777"/>
+        <!-- Heart Highlight -->
+        <path d="M 135 116 C 135 116 132 113 132 111 C 132 109.5 133.5 109 135 110.5 C 136.5 109 138 109.5 138 111 C 138 113 135 116 135 116 Z" fill="#ffffff"/>
+        <circle cx="138" cy="118" r="1.2" fill="#ffffff"/>
+        <path d="M 126 98 Q 135 95 143 99" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </g>
+      <!-- Right Eye -->
+      <g>
+        <path d="M 155 107 Q 165 101 176 107" stroke="#1e293b" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <ellipse cx="165" cy="114" rx="7.5" ry="9" fill="#f472b6"/>
+        <ellipse cx="165" cy="115" rx="5" ry="6.5" fill="#db2777"/>
+        <!-- Heart Highlight -->
+        <path d="M 165 116 C 165 116 162 113 162 111 C 162 109.5 163.5 109 165 110.5 C 166.5 109 168 109.5 168 111 C 168 113 165 116 165 116 Z" fill="#ffffff"/>
+        <circle cx="168" cy="118" r="1.2" fill="#ffffff"/>
+        <path d="M 157 99 Q 165 95 174 98" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </g>
+    `,
+  }),
+  new Item({
+    id: 'eyes_golden_amber',
+    name: '琥珀ゴールドアイ',
+    slotCategory: SlotCategory.EYES,
+    svgContent: `
+      <!-- Left Eye -->
+      <g>
+        <path d="M 124 106 Q 135 101 145 107" stroke="#78350f" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+        <ellipse cx="135" cy="114" rx="7.5" ry="9" fill="#fbbf24"/>
+        <ellipse cx="135" cy="115" rx="5" ry="6" fill="#d97706"/>
+        <ellipse cx="135" cy="115" rx="2.5" ry="3.5" fill="#78350f"/>
+        <circle cx="133" cy="111" r="2.8" fill="#ffffff"/>
+        <circle cx="138" cy="117" r="1.5" fill="#ffffff"/>
+        <path d="M 126 98 Q 135 95 143 99" stroke="#b45309" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </g>
+      <!-- Right Eye -->
+      <g>
+        <path d="M 155 107 Q 165 101 176 106" stroke="#78350f" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+        <ellipse cx="165" cy="114" rx="7.5" ry="9" fill="#fbbf24"/>
+        <ellipse cx="165" cy="115" rx="5" ry="6" fill="#d97706"/>
+        <ellipse cx="165" cy="115" rx="2.5" ry="3.5" fill="#78350f"/>
+        <circle cx="163" cy="111" r="2.8" fill="#ffffff"/>
+        <circle cx="168" cy="117" r="1.5" fill="#ffffff"/>
+        <path d="M 157 99 Q 165 95 174 98" stroke="#b45309" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </g>
+    `,
+  }),
+  new Item({
+    id: 'eyes_droopy_puppy',
+    name: 'うるうるたれ目（愛されブラウン）',
+    slotCategory: SlotCategory.EYES,
+    svgContent: `
+      <!-- Left Eye (Droopy / Tareme) -->
+      <g>
+        <path d="M 124 105 Q 135 103 145 110" stroke="#451a03" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <ellipse cx="135" cy="116" rx="8" ry="8.5" fill="#92400e"/>
+        <ellipse cx="135" cy="117" rx="5.5" ry="6" fill="#78350f"/>
+        <circle cx="133" cy="113" r="3" fill="#ffffff"/>
+        <circle cx="138" cy="118" r="2" fill="#ffffff"/>
+        <circle cx="133" cy="121" r="1.2" fill="#fed7aa"/>
+        <!-- Soft drooping eyebrow -->
+        <path d="M 125 96 Q 135 97 143 103" stroke="#a8a29e" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </g>
+      <!-- Right Eye -->
+      <g>
+        <path d="M 155 110 Q 165 103 176 105" stroke="#451a03" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <ellipse cx="165" cy="116" rx="8" ry="8.5" fill="#92400e"/>
+        <ellipse cx="165" cy="117" rx="5.5" ry="6" fill="#78350f"/>
+        <circle cx="163" cy="113" r="3" fill="#ffffff"/>
+        <circle cx="168" cy="118" r="2" fill="#ffffff"/>
+        <circle cx="163" cy="121" r="1.2" fill="#fed7aa"/>
+        <!-- Soft drooping eyebrow -->
+        <path d="M 157 103 Q 165 97 175 96" stroke="#a8a29e" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </g>
+    `,
+  }),
+  new Item({
+    id: 'eyes_tsundere_cat',
+    name: 'ツンデレつり目（キャットブルー）',
+    slotCategory: SlotCategory.EYES,
+    svgContent: `
+      <!-- Left Eye (Cat-like Upturned Liner) -->
+      <g>
+        <path d="M 123 110 Q 134 101 146 104" stroke="#0f172a" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+        <ellipse cx="135" cy="113" rx="7" ry="8.5" fill="#06b6d4"/>
+        <ellipse cx="135" cy="113" rx="3.5" ry="7" fill="#0e7490"/>
+        <circle cx="133" cy="110" r="2.5" fill="#ffffff"/>
+        <circle cx="137" cy="116" r="1.4" fill="#ffffff"/>
+        <path d="M 126 100 Q 136 94 144 97" stroke="#0284c7" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </g>
+      <!-- Right Eye -->
+      <g>
+        <path d="M 154 104 Q 166 101 177 110" stroke="#0f172a" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+        <ellipse cx="165" cy="113" rx="7" ry="8.5" fill="#06b6d4"/>
+        <ellipse cx="165" cy="113" rx="3.5" ry="7" fill="#0e7490"/>
+        <circle cx="163" cy="110" r="2.5" fill="#ffffff"/>
+        <circle cx="167" cy="116" r="1.4" fill="#ffffff"/>
+        <path d="M 156 97 Q 164 94 174 100" stroke="#0284c7" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </g>
+    `,
+  }),
+  new Item({
+    id: 'eyes_starry_galaxy',
+    name: '夜空のギャラクシーアイ',
+    slotCategory: SlotCategory.EYES,
+    svgContent: `
+      <!-- Left Eye -->
+      <g>
+        <path d="M 124 106 Q 135 101 145 107" stroke="#0f172a" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <ellipse cx="135" cy="114" rx="7.5" ry="9" fill="#1e1b4b"/>
+        <path d="M 128 114 Q 135 124 142 114 Z" fill="#2dd4bf" opacity="0.8"/>
+        <!-- Star highlight -->
+        <polygon points="134,109 135.5,112 138,113 135.5,114 134,117 132.5,114 130,113 132.5,112" fill="#ffffff"/>
+        <circle cx="138" cy="117" r="1.5" fill="#ffffff"/>
+        <circle cx="131" cy="117" r="1" fill="#fef08a"/>
+        <path d="M 126 98 Q 135 95 143 99" stroke="#64748b" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </g>
+      <!-- Right Eye -->
+      <g>
+        <path d="M 155 107 Q 165 101 176 106" stroke="#0f172a" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <ellipse cx="165" cy="114" rx="7.5" ry="9" fill="#1e1b4b"/>
+        <path d="M 158 114 Q 165 124 172 114 Z" fill="#2dd4bf" opacity="0.8"/>
+        <!-- Star highlight -->
+        <polygon points="164,109 165.5,112 168,113 165.5,114 164,117 162.5,114 160,113 162.5,112" fill="#ffffff"/>
+        <circle cx="168" cy="117" r="1.5" fill="#ffffff"/>
+        <circle cx="161" cy="117" r="1" fill="#fef08a"/>
+        <path d="M 157 99 Q 165 95 174 98" stroke="#64748b" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </g>
+    `,
+  }),
+  new Item({
+    id: 'eyes_sweet_sleepy',
+    name: 'おっとり半開き眠たげアイ',
+    slotCategory: SlotCategory.EYES,
+    svgContent: `
+      <!-- Left Eye (Half Closed Eyelid) -->
+      <g>
+        <path d="M 124 111 Q 135 108 145 111" stroke="#334155" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+        <!-- Half visible iris below lid -->
+        <path d="M 128 112 Q 135 122 142 112 Z" fill="#c084fc"/>
+        <circle cx="135" cy="114" r="2.5" fill="#7e22ce"/>
+        <circle cx="133" cy="113" r="1.5" fill="#ffffff"/>
+        <path d="M 126 100 Q 135 99 143 102" stroke="#94a3b8" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </g>
+      <!-- Right Eye -->
+      <g>
+        <path d="M 155 111 Q 165 108 176 111" stroke="#334155" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+        <path d="M 158 112 Q 165 122 172 112 Z" fill="#c084fc"/>
+        <circle cx="165" cy="114" r="2.5" fill="#7e22ce"/>
+        <circle cx="163" cy="113" r="1.5" fill="#ffffff"/>
+        <path d="M 157 102 Q 165 99 174 100" stroke="#94a3b8" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </g>
+    `,
+  }),
+  new Item({
+    id: 'eyes_happy_closed',
+    name: 'にこにこ笑顔（満面の笑み目）',
+    slotCategory: SlotCategory.EYES,
+    svgContent: `
+      <!-- Left Happy Arc Eye -->
+      <g>
+        <path d="M 125 114 Q 135 105 145 114" stroke="#1e293b" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <!-- Lash flicks -->
+        <line x1="145" y1="114" x2="147" y2="111" stroke="#1e293b" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 126 98 Q 135 94 143 98" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" fill="none"/>
+      </g>
+      <!-- Right Happy Arc Eye -->
+      <g>
+        <path d="M 155 114 Q 165 105 175 114" stroke="#1e293b" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <line x1="175" y1="114" x2="177" y2="111" stroke="#1e293b" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 157 98 Q 165 94 174 98" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" fill="none"/>
+      </g>
+    `,
+  }),
+  new Item({
+    id: 'eyes_nezuko_pink',
+    name: '可憐なピンクアイ（禰豆子風）',
+    slotCategory: SlotCategory.EYES,
+    svgContent: `
+      <!-- Left Eye (Nezuko Inspired Soft Pink) -->
+      <g>
+        <path d="M 124 106 Q 135 100 145 106" stroke="#18181b" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <ellipse cx="135" cy="114" rx="7.5" ry="9" fill="#f472b6"/>
+        <ellipse cx="135" cy="114" rx="6" ry="7.5" fill="#fbcfe8"/>
+        <!-- Slit/Diamond Pupil -->
+        <polygon points="135,108 137,114 135,120 133,114" fill="#9d174d"/>
+        <circle cx="133" cy="111" r="2.5" fill="#ffffff"/>
+        <circle cx="137" cy="117" r="1.5" fill="#ffffff"/>
+        <path d="M 126 98 Q 135 95 143 99" stroke="#18181b" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </g>
+      <!-- Right Eye -->
+      <g>
+        <path d="M 155 106 Q 165 100 176 106" stroke="#18181b" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <ellipse cx="165" cy="114" rx="7.5" ry="9" fill="#f472b6"/>
+        <ellipse cx="165" cy="114" rx="6" ry="7.5" fill="#fbcfe8"/>
+        <polygon points="165,108 167,114 165,120 163,114" fill="#9d174d"/>
+        <circle cx="163" cy="111" r="2.5" fill="#ffffff"/>
+        <circle cx="167" cy="117" r="1.5" fill="#ffffff"/>
+        <path d="M 157 99 Q 165 95 174 98" stroke="#18181b" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </g>
+    `,
+  }),
 
   // ==========================================
   // MOUTH & BLUSH (z-index: 50)
@@ -357,6 +923,164 @@ export const ALL_ITEMS: readonly Item[] = [
       <ellipse cx="123" cy="123" rx="7" ry="4" fill="#f472b6" opacity="0.6"/>
       <ellipse cx="177" cy="123" rx="7" ry="4" fill="#f472b6" opacity="0.6"/>
       <path d="M 144 130 Q 147 133 150 130 Q 153 133 156 130" stroke="#be123c" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    `,
+  }),
+  new Item({
+    id: 'mouth_pout_shy',
+    name: 'はにかみ・おちょぼ口',
+    slotCategory: SlotCategory.MOUTH,
+    svgContent: `
+      <!-- Shy Blushing Cheeks with Hash Marks -->
+      <ellipse cx="123" cy="123" rx="8" ry="5" fill="#fb7185" opacity="0.6"/>
+      <line x1="120" y1="120" x2="124" y2="126" stroke="#e11d48" stroke-width="1.2"/>
+      <line x1="124" y1="120" x2="128" y2="126" stroke="#e11d48" stroke-width="1.2"/>
+      <ellipse cx="177" cy="123" rx="8" ry="5" fill="#fb7185" opacity="0.6"/>
+      <line x1="172" y1="120" x2="176" y2="126" stroke="#e11d48" stroke-width="1.2"/>
+      <line x1="176" y1="120" x2="180" y2="126" stroke="#e11d48" stroke-width="1.2"/>
+      <!-- Tiny shy pout mouth -->
+      <circle cx="150" cy="130" r="2.8" fill="#e11d48"/>
+      <circle cx="150" cy="129.5" r="1.5" fill="#fbcfe8"/>
+    `,
+  }),
+  new Item({
+    id: 'mouth_chupatto_bubble',
+    name: 'ぷくっとほっぺ＆ふくれっ面',
+    slotCategory: SlotCategory.MOUTH,
+    svgContent: `
+      <!-- Puffed Pouting Cheeks -->
+      <ellipse cx="120" cy="123" rx="9.5" ry="6.5" fill="#f472b6" opacity="0.75"/>
+      <ellipse cx="180" cy="123" rx="9.5" ry="6.5" fill="#f472b6" opacity="0.75"/>
+      <!-- Small wavy pout mouth -->
+      <path d="M 145 131 Q 148 128 150 130 Q 152 132 155 129" stroke="#be123c" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    `,
+  }),
+  new Item({
+    id: 'mouth_tongue_wink',
+    name: 'ぺろっとてへぺろ舌出し',
+    slotCategory: SlotCategory.MOUTH,
+    svgContent: `
+      <!-- Cheeks -->
+      <ellipse cx="122" cy="122" rx="8" ry="5" fill="#f472b6" opacity="0.7"/>
+      <ellipse cx="178" cy="122" rx="8" ry="5" fill="#f472b6" opacity="0.7"/>
+      <!-- Mouth line -->
+      <path d="M 144 128 Q 150 134 156 128" stroke="#1e293b" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <!-- Playful sticking tongue -->
+      <path d="M 147 130 Q 149 137 153 136 Q 155 133 153 130 Z" fill="#f43f5e"/>
+      <line x1="150" y1="130" x2="151" y2="134" stroke="#be123c" stroke-width="0.8"/>
+    `,
+  }),
+  new Item({
+    id: 'mouth_sparkle_teeth',
+    name: '八重歯キラリ笑顔',
+    slotCategory: SlotCategory.MOUTH,
+    svgContent: `
+      <!-- Cheeks -->
+      <ellipse cx="122" cy="122" rx="7.5" ry="4.5" fill="#fb7185" opacity="0.65"/>
+      <ellipse cx="178" cy="122" rx="7.5" ry="4.5" fill="#fb7185" opacity="0.65"/>
+      <!-- Grinning Mouth -->
+      <path d="M 143 127 Q 150 138 157 127 Z" fill="#dc2626"/>
+      <path d="M 145 127 L 155 127 L 154 130 L 146 130 Z" fill="#ffffff"/>
+      <!-- Cute Snaggletooth / Fang on upper right -->
+      <polygon points="152,127 155,127 154,132" fill="#ffffff"/>
+      <!-- Little sparkle -->
+      <polygon points="159,127 160,129 162,130 160,131 159,133 158,131 156,130 158,129" fill="#facc15"/>
+    `,
+  }),
+  new Item({
+    id: 'mouth_heart_kiss',
+    name: 'ちゅーリップ（投げキッス）',
+    slotCategory: SlotCategory.MOUTH,
+    svgContent: `
+      <!-- Heart-shaped Cheeks -->
+      <path d="M 124 125 C 124 125 119 121 119 119 C 119 117.5 120.5 117 122 118.5 C 123.5 117 125 117.5 125 119 C 125 121 124 125 124 125 Z" fill="#f43f5e" opacity="0.75"/>
+      <path d="M 176 125 C 176 125 171 121 171 119 C 171 117.5 172.5 117 174 118.5 C 175.5 117 177 117.5 177 119 C 177 121 176 125 176 125 Z" fill="#f43f5e" opacity="0.75"/>
+      <!-- Pouty Kissing Lips -->
+      <path d="M 150 132 C 150 132 146 129 146 127 C 146 125.5 147.5 125 150 126.5 C 152.5 125 154 125.5 154 127 C 154 129 150 132 150 132 Z" fill="#e11d48"/>
+      <!-- Floating Kiss Heart -->
+      <path d="M 160 125 C 160 125 157 122 157 120.5 C 157 119.5 158 119 159 120 C 160 119 161 119.5 161 120.5 C 161 122 160 125 160 125 Z" fill="#f43f5e"/>
+    `,
+  }),
+  new Item({
+    id: 'mouth_surprised_o',
+    name: 'ぽかんとお口（びっくり）',
+    slotCategory: SlotCategory.MOUTH,
+    svgContent: `
+      <!-- Soft Round Blush -->
+      <circle cx="123" cy="123" r="6" fill="#f472b6" opacity="0.6"/>
+      <circle cx="177" cy="123" r="6" fill="#f472b6" opacity="0.6"/>
+      <!-- Surprised 'O' Mouth -->
+      <ellipse cx="150" cy="131" rx="4" ry="5.5" fill="#be123c"/>
+      <ellipse cx="150" cy="132" rx="2.5" ry="3.5" fill="#fda4af"/>
+    `,
+  }),
+  new Item({
+    id: 'mouth_glamour_red',
+    name: '上品なチェリーリップ',
+    slotCategory: SlotCategory.MOUTH,
+    svgContent: `
+      <!-- Elegant Cheeks -->
+      <ellipse cx="123" cy="123" rx="8" ry="4" fill="#fda4af" opacity="0.5"/>
+      <ellipse cx="177" cy="123" rx="8" ry="4" fill="#fda4af" opacity="0.5"/>
+      <!-- Glamour Glossy Lips -->
+      <path d="M 145 129 Q 150 127 155 129 Q 150 134 145 129 Z" fill="#dc2626"/>
+      <path d="M 146 129 Q 150 130 154 129" stroke="#991b1b" stroke-width="1" fill="none"/>
+      <!-- Gloss shine dot -->
+      <ellipse cx="149" cy="130" rx="1.5" ry="0.8" fill="#ffffff"/>
+    `,
+  }),
+  new Item({
+    id: 'mouth_cat_fang',
+    name: '小悪魔ギザ歯マウス',
+    slotCategory: SlotCategory.MOUTH,
+    svgContent: `
+      <!-- Deep Magenta Cheeks -->
+      <ellipse cx="122" cy="122" rx="7.5" ry="4.5" fill="#c084fc" opacity="0.65"/>
+      <ellipse cx="178" cy="122" rx="7.5" ry="4.5" fill="#c084fc" opacity="0.65"/>
+      <!-- Devilish Grin -->
+      <path d="M 143 128 Q 150 137 157 128 Z" fill="#581c87"/>
+      <!-- Double Fangs -->
+      <polygon points="146,128 148,128 147,132" fill="#ffffff"/>
+      <polygon points="152,128 154,128 153,132" fill="#ffffff"/>
+      <path d="M 142 128 Q 150 130 158 128" stroke="#3b0764" stroke-width="1.5" fill="none"/>
+    `,
+  }),
+  new Item({
+    id: 'mouth_freckles_smile',
+    name: 'そばかす＆おてんばスマイル',
+    slotCategory: SlotCategory.MOUTH,
+    svgContent: `
+      <!-- Freckles Dots across Cheeks & Nose -->
+      <circle cx="122" cy="121" r="0.9" fill="#b45309"/>
+      <circle cx="125" cy="123" r="0.9" fill="#b45309"/>
+      <circle cx="120" cy="124" r="0.9" fill="#b45309"/>
+      <circle cx="147" cy="123" r="0.8" fill="#b45309"/>
+      <circle cx="153" cy="123" r="0.8" fill="#b45309"/>
+      <circle cx="175" cy="123" r="0.9" fill="#b45309"/>
+      <circle cx="178" cy="121" r="0.9" fill="#b45309"/>
+      <circle cx="180" cy="124" r="0.9" fill="#b45309"/>
+      <!-- Warm Peach Cheeks -->
+      <ellipse cx="123" cy="124" rx="7" ry="4" fill="#fb923c" opacity="0.45"/>
+      <ellipse cx="177" cy="124" rx="7" ry="4" fill="#fb923c" opacity="0.45"/>
+      <!-- Cheerful Open Smile -->
+      <path d="M 144 128 Q 150 136 156 128 Z" fill="#e11d48"/>
+      <path d="M 146 131 Q 150 135 154 131 Z" fill="#fda4af"/>
+    `,
+  }),
+  new Item({
+    id: 'mouth_drool_sleepy',
+    name: 'すやすや寝息＆プチよだれ',
+    slotCategory: SlotCategory.MOUTH,
+    svgContent: `
+      <!-- Soft Pale Cheeks -->
+      <ellipse cx="123" cy="123" rx="7" ry="4" fill="#f472b6" opacity="0.5"/>
+      <ellipse cx="177" cy="123" rx="7" ry="4" fill="#f472b6" opacity="0.5"/>
+      <!-- Loose Sleepy Mouth -->
+      <ellipse cx="149" cy="130" rx="3.5" ry="2.5" fill="#e11d48"/>
+      <!-- Tiny Drool Bubble / Droplet -->
+      <circle cx="153" cy="132" r="1.6" fill="#7dd3fc" opacity="0.85"/>
+      <!-- Sleepy 'z' marks -->
+      <text x="162" y="124" font-size="9" font-family="sans-serif" font-weight="bold" fill="#38bdf8" opacity="0.8">z</text>
+      <text x="169" y="117" font-size="12" font-family="sans-serif" font-weight="bold" fill="#38bdf8" opacity="0.6">Z</text>
     `,
   }),
 
