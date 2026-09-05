@@ -1,7 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
   SlotCategory,
-  DEFAULT_SLOT_Z_INDEX,
   SLOT_CATEGORY_LABELS,
   getSlotZIndex,
   isClothingSlot,
