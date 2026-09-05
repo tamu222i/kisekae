@@ -1,0 +1,16 @@
+// .devcontainer/devcontainer.json
+{
+  "name": "antigravity-sandbox",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Google.google-antigravity"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+}
