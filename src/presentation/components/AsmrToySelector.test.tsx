@@ -50,4 +50,32 @@ describe('AsmrToySelector component', () => {
       expect(onUnlockMock).toHaveBeenCalledWith('toy_soap_cutting');
     }
   });
+
+  it('filters toys by category', () => {
+    const onSelectMock = vi.fn();
+    const onUnlockMock = vi.fn();
+
+    render(
+      <AsmrToySelector
+        toys={DEFAULT_ASMR_TOYS}
+        activeToyId="toy_bubble_wrap"
+        isUnlocked={(id) => id === 'toy_bubble_wrap'}
+        onSelectToy={onSelectMock}
+        onUnlockToy={onUnlockMock}
+        coins={200}
+      />
+    );
+
+    // Initial state: both bubble wrap and potato chips are present
+    expect(screen.getByText('ぷちぷちバブルラップ')).toBeInTheDocument();
+    expect(screen.getByText('パリパリポテトチップス')).toBeInTheDocument();
+
+    // Click "たべもの" filter tab
+    const foodTab = screen.getByRole('button', { name: /たべもの/i });
+    fireEvent.click(foodTab);
+
+    // Potato chips should be visible, bubble wrap should be filtered out
+    expect(screen.getByText('パリパリポテトチップス')).toBeInTheDocument();
+    expect(screen.queryByText('ぷちぷちバブルラップ')).not.toBeInTheDocument();
+  });
 });

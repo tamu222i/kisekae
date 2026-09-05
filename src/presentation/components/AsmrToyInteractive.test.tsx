@@ -29,7 +29,7 @@ describe('AsmrToyInteractive component', () => {
 
   it('renders different toys according to soundType', () => {
     const onTapMock = vi.fn();
-    const slimeToy = DEFAULT_ASMR_TOYS[2]; // slime
+    const slimeToy = DEFAULT_ASMR_TOYS.find((t) => t.soundType === 'slime')!;
 
     render(
       <AsmrToyInteractive
@@ -40,5 +40,31 @@ describe('AsmrToyInteractive component', () => {
     );
 
     expect(screen.getByText(slimeToy.name)).toBeInTheDocument();
+  });
+
+  it('renders potato chips and shaved ice toys with interactive feedback', () => {
+    const onTapMock = vi.fn();
+    const chipsToy = DEFAULT_ASMR_TOYS.find((t) => t.soundType === 'potato_chips')!;
+
+    const { rerender } = render(
+      <AsmrToyInteractive
+        toy={chipsToy}
+        onTap={onTapMock}
+        lastEarned={5}
+      />
+    );
+
+    expect(screen.getByText(chipsToy.name)).toBeInTheDocument();
+
+    const iceToy = DEFAULT_ASMR_TOYS.find((t) => t.soundType === 'shaved_ice')!;
+    rerender(
+      <AsmrToyInteractive
+        toy={iceToy}
+        onTap={onTapMock}
+        lastEarned={8}
+      />
+    );
+
+    expect(screen.getByText(iceToy.name)).toBeInTheDocument();
   });
 });
