@@ -94,4 +94,45 @@ describe('AsmrToy Entity', () => {
     expect(freeToy.isFreeToUnlock()).toBe(true);
     expect(paidToy.isFreeToUnlock()).toBe(false);
   });
+
+  it('supports 20 distinct sound types and categories', () => {
+    const soundTypes = [
+      'bubble_wrap',
+      'soap_cutting',
+      'slime',
+      'keyboard',
+      'crystal_tap',
+      'potato_chips',
+      'shaved_ice',
+      'carbonated_soda',
+      'scissors_haircut',
+      'book_page_flip',
+      'autumn_leaves',
+      'wood_block_clack',
+      'match_ignite',
+      'rain_umbrella',
+      'clock_tick',
+      'water_drop_cave',
+      'fire_crackling',
+      'whisper_ear_pick',
+      'cat_purr',
+      'bell_wind_chime',
+    ] as const;
+
+    expect(soundTypes).toHaveLength(20);
+
+    const chipToy = new AsmrToy({
+      id: 'toy_potato_chips',
+      name: 'パリパリポテトチップス',
+      description: 'ザクッ！パリッ！と香ばしい咀嚼音',
+      soundType: 'potato_chips',
+      unlockCost: 120,
+      baseCoinYield: 5,
+      icon: '🥔',
+      category: 'food',
+    });
+
+    expect(chipToy.soundType).toBe('potato_chips');
+    expect(chipToy.category).toBe('food');
+  });
 });

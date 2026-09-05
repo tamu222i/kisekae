@@ -4,9 +4,34 @@ export const AsmrSoundType = {
   SLIME: 'slime',
   KEYBOARD: 'keyboard',
   CRYSTAL_TAP: 'crystal_tap',
+  POTATO_CHIPS: 'potato_chips',
+  SHAVED_ICE: 'shaved_ice',
+  CARBONATED_SODA: 'carbonated_soda',
+  SCISSORS_HAIRCUT: 'scissors_haircut',
+  BOOK_PAGE_FLIP: 'book_page_flip',
+  AUTUMN_LEAVES: 'autumn_leaves',
+  WOOD_BLOCK_CLACK: 'wood_block_clack',
+  MATCH_IGNITE: 'match_ignite',
+  RAIN_UMBRELLA: 'rain_umbrella',
+  CLOCK_TICK: 'clock_tick',
+  WATER_DROP_CAVE: 'water_drop_cave',
+  FIRE_CRACKLING: 'fire_crackling',
+  WHISPER_EAR_PICK: 'whisper_ear_pick',
+  CAT_PURR: 'cat_purr',
+  BELL_WIND_CHIME: 'bell_wind_chime',
 } as const;
 
 export type AsmrSoundType = (typeof AsmrSoundType)[keyof typeof AsmrSoundType];
+
+export const AsmrToyCategory = {
+  ALL: 'all',
+  FOOD: 'food',
+  TACTILE: 'tactile',
+  RELAX: 'relax',
+  NATURE: 'nature',
+} as const;
+
+export type AsmrToyCategory = (typeof AsmrToyCategory)[keyof typeof AsmrToyCategory];
 
 export interface AsmrToyProps {
   id: string;
@@ -16,6 +41,7 @@ export interface AsmrToyProps {
   unlockCost: number;
   baseCoinYield: number;
   icon: string;
+  category?: AsmrToyCategory;
 }
 
 export class AsmrToy {
@@ -26,6 +52,7 @@ export class AsmrToy {
   readonly unlockCost: number;
   readonly baseCoinYield: number;
   readonly icon: string;
+  readonly category: AsmrToyCategory;
 
   constructor(props: AsmrToyProps) {
     if (!props.id || props.id.trim() === '') {
@@ -48,6 +75,7 @@ export class AsmrToy {
     this.unlockCost = props.unlockCost;
     this.baseCoinYield = props.baseCoinYield;
     this.icon = props.icon;
+    this.category = props.category ?? AsmrToyCategory.TACTILE;
   }
 
   isFreeToUnlock(): boolean {
