@@ -99,3 +99,4 @@ export class GetCatalogUseCase {
     return this.repository.getByCategory(category);
   }
 }
+

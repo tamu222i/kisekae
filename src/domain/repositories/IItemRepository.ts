@@ -7,3 +7,4 @@ export interface IItemRepository {
   getById(id: string): Promise<Item | undefined>;
   getBaseBody(): Promise<Item>;
 }
+

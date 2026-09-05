@@ -92,3 +92,4 @@ export class Outfit {
     return new Outfit(new Map(this.itemsMap));
   }
 }
+

@@ -71,3 +71,4 @@ describe('Kisekae Application Use Cases', () => {
     expect(randomized.getAllItems().length).toBeGreaterThan(3);
   });
 });
+

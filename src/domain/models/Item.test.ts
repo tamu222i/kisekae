@@ -84,3 +84,4 @@ describe('Item Entity', () => {
     expect(item1.equals(item3)).toBe(false);
   });
 });
+

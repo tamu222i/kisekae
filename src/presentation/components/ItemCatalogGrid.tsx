@@ -91,3 +91,4 @@ export const ItemCatalogGrid: React.FC<ItemCatalogGridProps> = ({
     </div>
   );
 };
+

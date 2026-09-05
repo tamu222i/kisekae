@@ -55,3 +55,4 @@ export function isClothingSlot(category: SlotCategory): boolean {
     category === SlotCategory.ACCESSORY
   );
 }
+

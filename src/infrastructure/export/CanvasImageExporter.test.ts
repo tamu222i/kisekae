@@ -33,3 +33,4 @@ describe('CanvasImageExporter', () => {
     vi.restoreAllMocks();
   });
 });
+

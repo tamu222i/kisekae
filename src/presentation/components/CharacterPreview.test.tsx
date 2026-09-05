@@ -32,3 +32,4 @@ describe('CharacterPreview Component', () => {
     expect(layers[1].getAttribute('data-layer')).toBe(SlotCategory.TOPS);
   });
 });
+

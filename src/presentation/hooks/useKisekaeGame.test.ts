@@ -62,3 +62,4 @@ describe('useKisekaeGame hook', () => {
     expect(result.current.itemsForSelectedCategory.every(i => i.slotCategory === SlotCategory.HAIR_FRONT)).toBe(true);
   });
 });
+
