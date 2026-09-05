@@ -64,4 +64,31 @@ describe('Kisekae App Integration', () => {
       fireEvent.click(resetBtn);
     });
   });
+
+  it('switches between Kisekae mode and ASMR studio mode', async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByRole('button', { name: /音フェチ/i })).toBeInTheDocument();
+    });
+
+    // Switch to ASMR studio
+    const asmrBtn = screen.getByRole('button', { name: /音フェチ/i });
+    fireEvent.click(asmrBtn);
+
+    // Expect ASMR view elements to be rendered
+    await waitFor(() => {
+      expect(screen.getByTestId('asmr-game-view')).toBeInTheDocument();
+      expect(screen.getByText(/タイクーン強化ショップ/)).toBeInTheDocument();
+    });
+
+    // Switch back to Kisekae
+    const kisekaeBtn = screen.getByRole('button', { name: /きせかえ/i });
+    fireEvent.click(kisekaeBtn);
+
+    await waitFor(() => {
+      expect(screen.getByRole('tab', { name: /トップス/i })).toBeInTheDocument();
+    });
+  });
 });
+

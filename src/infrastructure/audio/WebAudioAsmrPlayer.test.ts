@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { WebAudioAsmrPlayer } from './WebAudioAsmrPlayer';
 import { AsmrSoundType } from '../../domain/models/AsmrToy';
 

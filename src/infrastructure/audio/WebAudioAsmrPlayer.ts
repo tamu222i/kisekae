@@ -1,9 +1,30 @@
 import { AsmrSoundType } from '../../domain/models/AsmrToy';
 
-export class WebAudioAsmrPlayer {
+export interface IAsmrSoundPlayer {
+  play(soundType: AsmrSoundType): void;
+  resume(): Promise<void>;
+  readonly isMuted: boolean;
+  setMuted(muted: boolean): void;
+}
+
+export class WebAudioAsmrPlayer implements IAsmrSoundPlayer {
+  private static instance: WebAudioAsmrPlayer | null = null;
   private ctx: AudioContext | null = null;
   private _isMuted: boolean = false;
   private noiseBuffer: AudioBuffer | null = null;
+
+  static getInstance(): WebAudioAsmrPlayer {
+    if (!WebAudioAsmrPlayer.instance) {
+      WebAudioAsmrPlayer.instance = new WebAudioAsmrPlayer();
+    }
+    return WebAudioAsmrPlayer.instance;
+  }
+
+  async resume(): Promise<void> {
+    if (this.ctx && this.ctx.state === 'suspended') {
+      await this.ctx.resume().catch(() => {});
+    }
+  }
 
   constructor() {
     // Lazy initialization of AudioContext on first user interaction to satisfy browser autoplay policies

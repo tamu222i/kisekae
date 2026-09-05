@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { AsmrToy, AsmrSoundType } from './AsmrToy';
+import { AsmrToy } from './AsmrToy';
 
 describe('AsmrToy Entity', () => {
   it('creates an AsmrToy with valid properties', () => {
