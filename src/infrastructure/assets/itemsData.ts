@@ -86,6 +86,31 @@ export const ALL_ITEMS: readonly Item[] = [
       <polygon points="230,48 245,43 238,62" fill="#a855f7"/>
     `,
   }),
+  new Item({
+    id: 'bg_magic_circle',
+    name: '星屑の魔法陣',
+    slotCategory: SlotCategory.BACKGROUND,
+    svgContent: `
+      <defs>
+        <linearGradient id="magicGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3b0764"/>
+          <stop offset="50%" stop-color="#581c87"/>
+          <stop offset="100%" stop-color="#831843"/>
+        </linearGradient>
+      </defs>
+      <rect width="300" height="400" fill="url(#magicGrad)" rx="16"/>
+      <!-- Magical Summoning Circle -->
+      <circle cx="150" cy="200" r="110" stroke="#f472b6" stroke-width="2" fill="none" opacity="0.6"/>
+      <circle cx="150" cy="200" r="95" stroke="#fbcfe8" stroke-width="1.5" stroke-dasharray="6,4" fill="none" opacity="0.7"/>
+      <circle cx="150" cy="200" r="75" stroke="#c084fc" stroke-width="1.5" fill="none" opacity="0.5"/>
+      <polygon points="150,90 195,175 105,175" stroke="#fef08a" stroke-width="1.5" fill="none" opacity="0.6"/>
+      <polygon points="150,230 195,145 105,145" stroke="#fef08a" stroke-width="1.5" fill="none" opacity="0.6"/>
+      <circle cx="80" cy="70" r="2" fill="#fef08a" opacity="0.9"/>
+      <circle cx="220" cy="80" r="2.5" fill="#f472b6" opacity="0.8"/>
+      <circle cx="60" cy="310" r="2" fill="#c084fc" opacity="0.8"/>
+      <circle cx="240" cy="320" r="2.5" fill="#fef08a" opacity="0.9"/>
+    `,
+  }),
 
   // ==========================================
   // HAIR BACK (z-index: 20)
@@ -145,6 +170,17 @@ export const ALL_ITEMS: readonly Item[] = [
     svgContent: `
       <ellipse cx="150" cy="120" rx="58" ry="55" fill="#a855f7"/>
       <path d="M 95 130 C 95 175 105 195 120 205 C 150 210 150 210 180 205 C 195 195 205 175 205 130 Z" fill="#a855f7"/>
+    `,
+  }),
+  new Item({
+    id: 'hair_back_nezuko',
+    name: '黒髪オレンジウェーブ（後）',
+    slotCategory: SlotCategory.HAIR_BACK,
+    svgContent: `
+      <ellipse cx="150" cy="120" rx="56" ry="52" fill="#18181b"/>
+      <path d="M 95 125 C 80 180 70 260 78 335 C 90 345 120 340 150 335 C 180 340 210 345 222 335 C 230 260 220 180 205 125 Z" fill="#18181b"/>
+      <path d="M 78 300 C 76 325 80 345 88 350 C 105 345 130 340 150 338 C 170 340 195 345 212 350 C 220 345 224 325 222 300 Z" fill="#ea580c"/>
+      <path d="M 85 320 Q 95 345 105 330 M 195 330 Q 205 345 215 320" stroke="#f97316" stroke-width="2" fill="none"/>
     `,
   }),
 
@@ -450,6 +486,130 @@ export const ALL_ITEMS: readonly Item[] = [
       <path d="M 171 168 L 185 190 L 177 194 L 168 180 Z" fill="#34d399"/>
     `,
   }),
+  new Item({
+    id: 'tops_haori_tanjiro',
+    name: '市松模様の羽織（炭治郎風）',
+    slotCategory: SlotCategory.TOPS,
+    svgContent: `
+      <!-- Dark Corps Uniform base collar -->
+      <path d="M 136 166 L 164 166 L 165 230 L 135 230 Z" fill="#18181b"/>
+      <polygon points="144,166 156,166 150,178" fill="#ffffff"/>
+      <!-- Green and Black Checkered Haori (Tanjiro) -->
+      <path d="M 125 166 L 175 166 L 178 238 L 122 238 Z" fill="#15803d"/>
+      <!-- Wide Haori Sleeves -->
+      <path d="M 125 166 L 102 215 L 122 225 L 132 185 Z" fill="#15803d"/>
+      <path d="M 175 166 L 198 215 L 178 225 L 168 185 Z" fill="#15803d"/>
+      <!-- Checkered Pattern Blocks -->
+      <rect x="123" y="166" width="13" height="15" fill="#18181b"/>
+      <rect x="149" y="166" width="13" height="15" fill="#18181b"/>
+      <rect x="136" y="181" width="13" height="15" fill="#18181b"/>
+      <rect x="162" y="181" width="13" height="15" fill="#18181b"/>
+      <rect x="123" y="196" width="13" height="15" fill="#18181b"/>
+      <rect x="149" y="196" width="13" height="15" fill="#18181b"/>
+      <rect x="136" y="211" width="13" height="15" fill="#18181b"/>
+      <rect x="162" y="211" width="13" height="15" fill="#18181b"/>
+      <rect x="123" y="226" width="13" height="12" fill="#18181b"/>
+      <rect x="149" y="226" width="13" height="12" fill="#18181b"/>
+      <!-- Sleeve blocks -->
+      <rect x="108" y="180" width="10" height="12" fill="#18181b"/>
+      <rect x="114" y="200" width="10" height="14" fill="#18181b"/>
+      <rect x="182" y="180" width="10" height="12" fill="#18181b"/>
+      <rect x="176" y="200" width="10" height="14" fill="#18181b"/>
+      <!-- White Haori Cord -->
+      <line x1="144" y1="190" x2="156" y2="190" stroke="#ffffff" stroke-width="2"/>
+    `,
+  }),
+  new Item({
+    id: 'tops_haori_shinobu',
+    name: '蝶の羽織（しのぶ風）',
+    slotCategory: SlotCategory.TOPS,
+    svgContent: `
+      <!-- Dark Uniform Inset -->
+      <path d="M 136 166 L 164 166 L 165 230 L 135 230 Z" fill="#1e1b4b"/>
+      <polygon points="144,166 156,166 150,178" fill="#ffffff"/>
+      <!-- White Butterfly Wing Haori (Shinobu) -->
+      <path d="M 125 166 L 175 166 L 180 240 L 120 240 Z" fill="#ffffff"/>
+      <!-- Wide Sleeves -->
+      <path d="M 125 166 L 98 220 L 120 230 L 132 185 Z" fill="#ffffff"/>
+      <path d="M 175 166 L 202 220 L 180 230 L 168 185 Z" fill="#ffffff"/>
+      <!-- Turquoise & Pink Wing Hem Border -->
+      <path d="M 120 232 Q 135 240 150 232 Q 165 240 180 232 L 180 240 Q 165 248 150 240 Q 135 248 120 240 Z" fill="#5eead4"/>
+      <path d="M 120 236 Q 135 244 150 236 Q 165 244 180 236 L 180 240 Q 165 248 150 240 Q 135 248 120 240 Z" fill="#f472b6"/>
+      <!-- Sleeve Hem Scallops -->
+      <path d="M 100 215 L 120 225 L 118 230 L 98 220 Z" fill="#5eead4"/>
+      <path d="M 200 215 L 180 225 L 182 230 L 202 220 Z" fill="#5eead4"/>
+      <!-- Black veining lines -->
+      <path d="M 130 190 Q 135 215 135 235 M 150 185 L 150 235 M 170 190 Q 165 215 165 235" stroke="#0f172a" stroke-width="1.2" fill="none"/>
+    `,
+  }),
+  new Item({
+    id: 'tops_haori_rengoku',
+    name: '炎の羽織（煉獄風）',
+    slotCategory: SlotCategory.TOPS,
+    svgContent: `
+      <!-- Dark Uniform Inset -->
+      <path d="M 136 166 L 164 166 L 165 230 L 135 230 Z" fill="#3f3f46"/>
+      <polygon points="144,166 156,166 150,178" fill="#ffffff"/>
+      <!-- White Cape / Haori with Flame Hem -->
+      <path d="M 124 166 L 176 166 L 182 242 L 118 242 Z" fill="#ffffff"/>
+      <path d="M 124 166 L 98 222 L 122 230 L 132 185 Z" fill="#ffffff"/>
+      <path d="M 176 166 L 202 222 L 178 230 L 168 185 Z" fill="#ffffff"/>
+      <!-- Yellow Flame Tier -->
+      <path d="M 118 242 L 125 220 L 132 230 L 140 215 L 150 230 L 160 215 L 168 230 L 175 220 L 182 242 Z" fill="#facc15"/>
+      <!-- Orange / Red Flame Border -->
+      <path d="M 118 242 L 125 228 L 132 236 L 140 224 L 150 236 L 160 224 L 168 236 L 175 228 L 182 242 Z" fill="#ef4444"/>
+      <!-- Sleeve Flames -->
+      <polygon points="100,215 110,210 115,222 105,224" fill="#facc15"/>
+      <polygon points="200,215 190,210 185,222 195,224" fill="#facc15"/>
+    `,
+  }),
+  new Item({
+    id: 'tops_haori_zenitsu',
+    name: '鱗文様の羽織（善逸風）',
+    slotCategory: SlotCategory.TOPS,
+    svgContent: `
+      <!-- Dark Uniform -->
+      <path d="M 136 166 L 164 166 L 165 230 L 135 230 Z" fill="#27272a"/>
+      <!-- Yellow/Orange Gradient Haori (Zenitsu) -->
+      <defs>
+        <linearGradient id="zenitsuGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#fde047"/>
+          <stop offset="100%" stop-color="#f97316"/>
+        </linearGradient>
+      </defs>
+      <path d="M 125 166 L 175 166 L 178 238 L 122 238 Z" fill="url(#zenitsuGrad)"/>
+      <path d="M 125 166 L 102 215 L 122 225 L 132 185 Z" fill="url(#zenitsuGrad)"/>
+      <path d="M 175 166 L 198 215 L 178 225 L 168 185 Z" fill="url(#zenitsuGrad)"/>
+      <!-- White Triangles Pattern (Scale/Uroko) -->
+      <polygon points="135,175 140,183 130,183" fill="#ffffff"/>
+      <polygon points="155,175 160,183 150,183" fill="#ffffff"/>
+      <polygon points="145,190 150,198 140,198" fill="#ffffff"/>
+      <polygon points="165,190 170,198 160,198" fill="#ffffff"/>
+      <polygon points="135,205 140,213 130,213" fill="#ffffff"/>
+      <polygon points="155,205 160,213 150,213" fill="#ffffff"/>
+      <polygon points="145,220 150,228 140,228" fill="#ffffff"/>
+      <polygon points="165,220 170,228 160,228" fill="#ffffff"/>
+      <polygon points="112,192 117,200 107,200" fill="#ffffff"/>
+      <polygon points="188,192 193,200 183,200" fill="#ffffff"/>
+    `,
+  }),
+  new Item({
+    id: 'tops_bear_hoodie',
+    name: 'もこもこくま耳パーカー',
+    slotCategory: SlotCategory.TOPS,
+    svgContent: `
+      <!-- Fluffy Brown Bear Hoodie -->
+      <path d="M 124 166 L 176 166 L 178 236 L 122 236 Z" fill="#b45309"/>
+      <path d="M 124 166 L 105 215 L 120 220 L 132 185 Z" fill="#b45309"/>
+      <path d="M 176 166 L 195 215 L 180 220 L 168 185 Z" fill="#b45309"/>
+      <ellipse cx="150" cy="205" rx="16" ry="18" fill="#fef3c7"/>
+      <path d="M 134 218 L 166 218 L 164 234 L 136 234 Z" fill="#92400e"/>
+      <ellipse cx="150" cy="226" rx="4" ry="3" fill="#fef3c7"/>
+      <circle cx="144" cy="222" r="1.5" fill="#fef3c7"/>
+      <circle cx="150" cy="220" r="1.5" fill="#fef3c7"/>
+      <circle cx="156" cy="222" r="1.5" fill="#fef3c7"/>
+    `,
+  }),
 
   // ==========================================
   // ONE PIECE DRESSES (z-index: 75)
@@ -520,6 +680,99 @@ export const ALL_ITEMS: readonly Item[] = [
       <rect x="131" y="218" width="38" height="5" fill="#84cc16"/>
     `,
   }),
+  new Item({
+    id: 'dress_kimono_nezuko',
+    name: '麻の葉の着物（禰豆子風）',
+    slotCategory: SlotCategory.ONE_PIECE,
+    conflictSlots: [SlotCategory.TOPS, SlotCategory.BOTTOMS],
+    svgContent: `
+      <!-- Dark Haori outer cloak borders -->
+      <path d="M 120 170 L 132 170 L 125 285 L 110 285 Z" fill="#18181b"/>
+      <path d="M 168 170 L 180 170 L 190 285 L 175 285 Z" fill="#18181b"/>
+      <!-- Pink Asanoha Kimono Base -->
+      <path d="M 130 166 L 170 166 L 176 285 L 124 285 Z" fill="#f472b6"/>
+      <!-- White Kimono Collar -->
+      <polygon points="144,166 156,166 150,178" fill="#ffffff"/>
+      <!-- Geometric Asanoha (Hemp leaf) Lines -->
+      <line x1="130" y1="235" x2="170" y2="235" stroke="#db2777" stroke-width="1"/>
+      <line x1="130" y1="260" x2="170" y2="260" stroke="#db2777" stroke-width="1"/>
+      <path d="M 140 235 L 150 248 L 160 235 L 150 222 Z" stroke="#db2777" stroke-width="1" fill="none"/>
+      <path d="M 140 260 L 150 273 L 160 260 L 150 247 Z" stroke="#db2777" stroke-width="1" fill="none"/>
+      <!-- Red and White Ichimatsu (Checkered) Obi -->
+      <rect x="130" y="202" width="40" height="22" fill="#ef4444"/>
+      <rect x="130" y="202" width="10" height="11" fill="#ffffff"/>
+      <rect x="150" y="202" width="10" height="11" fill="#ffffff"/>
+      <rect x="140" y="213" width="10" height="11" fill="#ffffff"/>
+      <rect x="160" y="213" width="10" height="11" fill="#ffffff"/>
+      <!-- Green / Orange Obi Cord (Obijime) -->
+      <line x1="129" y1="213" x2="171" y2="213" stroke="#84cc16" stroke-width="2"/>
+    `,
+  }),
+  new Item({
+    id: 'dress_magical_girl',
+    name: 'きらきら魔法少女ドレス',
+    slotCategory: SlotCategory.ONE_PIECE,
+    conflictSlots: [SlotCategory.TOPS, SlotCategory.BOTTOMS],
+    svgContent: `
+      <!-- Bodice (Pink & Lavender) -->
+      <path d="M 128 166 L 172 166 L 168 215 L 132 215 Z" fill="#f472b6"/>
+      <!-- White frilly chest bib & golden star brooch -->
+      <path d="M 142 166 Q 150 178 158 166 L 154 188 L 146 188 Z" fill="#ffffff"/>
+      <polygon points="150,175 152,179 157,180 153,184 154,188 150,186 146,188 147,184 143,180 148,179" fill="#facc15"/>
+      <!-- Fluffy puff sleeves with lavender bows -->
+      <ellipse cx="120" cy="176" rx="9" ry="11" fill="#ffffff"/>
+      <ellipse cx="180" cy="176" rx="9" ry="11" fill="#ffffff"/>
+      <circle cx="120" cy="180" r="3" fill="#c084fc"/>
+      <circle cx="180" cy="180" r="3" fill="#c084fc"/>
+      <!-- Multi-layered Magical Skirt -->
+      <path d="M 132 215 L 168 215 L 188 285 L 112 285 Z" fill="#c084fc"/>
+      <!-- Over-skirt petals (Pink) -->
+      <path d="M 132 215 Q 150 250 168 215 Q 185 255 180 270 Q 150 260 120 270 Q 115 255 132 215" fill="#f472b6"/>
+      <!-- Golden hem stars and lace -->
+      <path d="M 112 285 Q 131 292 150 285 Q 169 292 188 285" stroke="#ffffff" stroke-width="4" fill="none"/>
+      <circle cx="135" cy="275" r="2.5" fill="#facc15"/>
+      <circle cx="165" cy="275" r="2.5" fill="#facc15"/>
+      <!-- Waist Ribbon -->
+      <circle cx="150" cy="215" r="4" fill="#ec4899"/>
+      <polygon points="144,213 150,215 142,223" fill="#ec4899"/>
+      <polygon points="156,213 150,215 158,223" fill="#ec4899"/>
+    `,
+  }),
+  new Item({
+    id: 'dress_strawberry_lolita',
+    name: 'いちごロリータドレス',
+    slotCategory: SlotCategory.ONE_PIECE,
+    conflictSlots: [SlotCategory.TOPS, SlotCategory.BOTTOMS],
+    svgContent: `
+      <!-- Cream and Strawberry Red Lolita Dress -->
+      <path d="M 130 166 L 170 166 L 168 215 L 132 215 Z" fill="#dc2626"/>
+      <!-- White bib with red lace-up ribbon -->
+      <polygon points="143,166 157,166 153,205 147,205" fill="#fef2f2"/>
+      <line x1="145" y1="175" x2="155" y2="175" stroke="#dc2626" stroke-width="1.5"/>
+      <line x1="146" y1="185" x2="154" y2="185" stroke="#dc2626" stroke-width="1.5"/>
+      <line x1="147" y1="195" x2="153" y2="195" stroke="#dc2626" stroke-width="1.5"/>
+      <!-- Sleeves -->
+      <ellipse cx="122" cy="176" rx="8" ry="11" fill="#fef2f2"/>
+      <ellipse cx="178" cy="176" rx="8" ry="11" fill="#fef2f2"/>
+      <!-- Big Frilly Skirt with White Polka Dots and Strawberries -->
+      <path d="M 132 215 L 168 215 L 188 285 L 112 285 Z" fill="#dc2626"/>
+      <!-- Dots -->
+      <circle cx="130" cy="235" r="2" fill="#ffffff"/>
+      <circle cx="150" cy="235" r="2" fill="#ffffff"/>
+      <circle cx="170" cy="235" r="2" fill="#ffffff"/>
+      <circle cx="140" cy="255" r="2" fill="#ffffff"/>
+      <circle cx="160" cy="255" r="2" fill="#ffffff"/>
+      <circle cx="125" cy="270" r="2" fill="#ffffff"/>
+      <circle cx="175" cy="270" r="2" fill="#ffffff"/>
+      <!-- Strawberry Icons -->
+      <g transform="translate(146, 260) scale(0.7)">
+        <polygon points="5,2 1,7 5,11 9,7" fill="#ef4444"/>
+        <polygon points="5,0 3,3 7,3" fill="#22c55e"/>
+      </g>
+      <!-- Hem Ruffles -->
+      <path d="M 112 285 Q 150 295 188 285" stroke="#ffffff" stroke-width="4" stroke-dasharray="3,2" fill="none"/>
+    `,
+  }),
 
   // ==========================================
   // SHOES (z-index: 80)
@@ -586,6 +839,24 @@ export const ALL_ITEMS: readonly Item[] = [
       <line x1="158" y1="349" x2="172" y2="349" stroke="#dc2626" stroke-width="2"/>
     `,
   }),
+  new Item({
+    id: 'shoes_strawberry_boots',
+    name: 'いちごリボンブーツ',
+    slotCategory: SlotCategory.SHOES,
+    svgContent: `
+      <!-- Cream Boots with Strawberry Ribbons -->
+      <rect x="128" y="325" width="14" height="25" fill="#fef2f2"/>
+      <rect x="158" y="325" width="14" height="25" fill="#fef2f2"/>
+      <path d="M 125 348 C 125 344 144 344 144 348 L 145 358 L 124 358 Z" fill="#fef2f2"/>
+      <path d="M 156 348 C 156 344 175 344 175 348 L 176 358 L 155 358 Z" fill="#fef2f2"/>
+      <!-- Red Soles -->
+      <rect x="123" y="356" width="23" height="4" fill="#dc2626"/>
+      <rect x="154" y="356" width="23" height="4" fill="#dc2626"/>
+      <!-- Strawberry Ribbon Ties -->
+      <circle cx="135" cy="336" r="2.5" fill="#dc2626"/>
+      <circle cx="165" cy="336" r="2.5" fill="#dc2626"/>
+    `,
+  }),
 
   // ==========================================
   // HAIR FRONT (z-index: 90)
@@ -637,6 +908,35 @@ export const ALL_ITEMS: readonly Item[] = [
       <path d="M 118 100 Q 130 114 138 106 Q 150 116 160 106 Q 168 114 174 100 Z" fill="#fde047"/>
       <path d="M 104 115 C 100 135 108 160 114 170 C 112 155 110 135 112 120 Z" fill="#fde047"/>
       <path d="M 196 115 C 200 135 192 160 186 170 C 188 155 190 135 188 120 Z" fill="#fde047"/>
+    `,
+  }),
+  new Item({
+    id: 'hair_front_nezuko',
+    name: '黒髪サイドピン前髪（禰豆子風）',
+    slotCategory: SlotCategory.HAIR_FRONT,
+    svgContent: `
+      <path d="M 102 110 C 102 68 198 68 198 110 C 198 120 194 135 192 145 C 190 125 186 110 180 102 C 172 100 162 100 150 100 C 138 100 128 100 120 102 C 114 110 110 125 108 145 C 106 135 102 120 102 110 Z" fill="#18181b"/>
+      <path d="M 115 100 Q 140 118 165 105 L 165 98 Z" fill="#18181b"/>
+      <rect x="156" y="98" width="10" height="4" rx="2" fill="#ec4899"/>
+      <polygon points="154,96 160,100 154,104" fill="#f472b6"/>
+      <polygon points="168,96 162,100 168,104" fill="#f472b6"/>
+      <path d="M 104 115 C 100 135 106 165 110 175 C 110 155 108 135 112 120 Z" fill="#18181b"/>
+      <path d="M 196 115 C 200 135 194 165 190 175 C 190 155 192 135 188 120 Z" fill="#18181b"/>
+    `,
+  }),
+  new Item({
+    id: 'hair_front_tanjiro',
+    name: 'オールバック赤黒髪（炭治郎風）',
+    slotCategory: SlotCategory.HAIR_FRONT,
+    svgContent: `
+      <!-- Swept Back Burgundy Hair (Tanjiro) -->
+      <path d="M 102 110 C 102 65 198 65 198 110 C 198 120 190 135 188 140 C 185 115 178 100 170 95 C 160 90 150 90 140 95 C 132 100 125 115 122 140 C 120 135 102 120 102 110 Z" fill="#7f1d1d"/>
+      <!-- Spiky forehead tufts -->
+      <polygon points="135,92 140,75 146,92" fill="#7f1d1d"/>
+      <polygon points="144,90 150,72 156,90" fill="#7f1d1d"/>
+      <polygon points="154,92 160,76 165,92" fill="#7f1d1d"/>
+      <!-- Forehead Scar mark -->
+      <path d="M 160 95 Q 164 100 162 106 Q 167 103 168 108" stroke="#991b1b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
     `,
   }),
 
@@ -714,6 +1014,80 @@ export const ALL_ITEMS: readonly Item[] = [
       <path d="M 120 78 Q 155 90 190 75 Z" fill="#fde68a"/>
       <!-- Stalk at top -->
       <rect x="154" y="50" width="3" height="6" rx="1" fill="#d97706"/>
+    `,
+  }),
+  new Item({
+    id: 'acc_bamboo_muzzle',
+    name: '竹の口枷（禰豆子風）',
+    slotCategory: SlotCategory.ACCESSORY,
+    svgContent: `
+      <!-- Bamboo tube across mouth (Nezuko) -->
+      <rect x="136" y="127" width="28" height="10" rx="4" fill="#65a30d" stroke="#3f6212" stroke-width="1"/>
+      <line x1="142" y1="127" x2="142" y2="137" stroke="#3f6212" stroke-width="1.5"/>
+      <line x1="158" y1="127" x2="158" y2="137" stroke="#3f6212" stroke-width="1.5"/>
+      <line x1="112" y1="130" x2="136" y2="132" stroke="#dc2626" stroke-width="2"/>
+      <line x1="164" y1="132" x2="188" y2="130" stroke="#dc2626" stroke-width="2"/>
+    `,
+  }),
+  new Item({
+    id: 'acc_butterfly_shinobu',
+    name: '紫の蝶髪飾り（しのぶ風）',
+    slotCategory: SlotCategory.ACCESSORY,
+    svgContent: `
+      <!-- Big Purple Butterfly Hairpin (Shinobu) on top right of head -->
+      <g transform="translate(170, 75)">
+        <path d="M 0 10 C 5 0 25 -5 20 15 C 18 20 5 15 0 10 Z" fill="#a855f7"/>
+        <path d="M 0 10 C 8 15 20 28 12 30 C 5 30 2 18 0 10 Z" fill="#c084fc"/>
+        <path d="M 15 2 C 22 2 20 12 16 12 Z" fill="#2dd4bf"/>
+        <ellipse cx="0" cy="12" rx="2" ry="6" fill="#1e1b4b"/>
+      </g>
+    `,
+  }),
+  new Item({
+    id: 'acc_earrings_hanafuda',
+    name: '日輪の花札ピアス（炭治郎風）',
+    slotCategory: SlotCategory.ACCESSORY,
+    svgContent: `
+      <!-- Left Earring -->
+      <line x1="105" y1="125" x2="105" y2="133" stroke="#94a3b8" stroke-width="1"/>
+      <rect x="101" y="133" width="8" height="15" fill="#ffffff" stroke="#0f172a" stroke-width="0.8"/>
+      <circle cx="105" cy="138" r="2.5" fill="#dc2626"/>
+      <line x1="102" y1="145" x2="108" y2="145" stroke="#0f172a" stroke-width="0.8"/>
+      <!-- Right Earring -->
+      <line x1="195" y1="125" x2="195" y2="133" stroke="#94a3b8" stroke-width="1"/>
+      <rect x="191" y="133" width="8" height="15" fill="#ffffff" stroke="#0f172a" stroke-width="0.8"/>
+      <circle cx="195" cy="138" r="2.5" fill="#dc2626"/>
+      <line x1="192" y1="145" x2="198" y2="145" stroke="#0f172a" stroke-width="0.8"/>
+    `,
+  }),
+  new Item({
+    id: 'acc_bunny_ears',
+    name: 'うさぎのたれ耳カチューシャ',
+    slotCategory: SlotCategory.ACCESSORY,
+    svgContent: `
+      <!-- Headband -->
+      <path d="M 110 98 C 120 78 180 78 190 98" stroke="#fbcfe8" stroke-width="3.5" fill="none"/>
+      <!-- Left Floppy Ear -->
+      <path d="M 115 85 C 95 65 75 80 80 110 C 85 115 95 110 98 98 Z" fill="#ffffff" stroke="#fce7f3" stroke-width="1"/>
+      <path d="M 110 86 C 96 73 83 83 87 104 C 89 107 94 105 97 96 Z" fill="#f472b6" opacity="0.6"/>
+      <circle cx="112" cy="85" r="3" fill="#ec4899"/>
+      <!-- Right Floppy Ear -->
+      <path d="M 185 85 C 205 65 225 80 220 110 C 215 115 205 110 202 98 Z" fill="#ffffff" stroke="#fce7f3" stroke-width="1"/>
+      <path d="M 190 86 C 204 73 217 83 213 104 C 211 107 206 105 203 96 Z" fill="#f472b6" opacity="0.6"/>
+      <circle cx="188" cy="85" r="3" fill="#ec4899"/>
+    `,
+  }),
+  new Item({
+    id: 'acc_angel_wings',
+    name: 'ふわふわ天使のはね',
+    slotCategory: SlotCategory.ACCESSORY,
+    svgContent: `
+      <!-- Left Wing -->
+      <path d="M 120 175 C 90 150 60 140 40 160 C 45 180 65 195 85 205 C 105 200 115 190 120 185 Z" fill="#ffffff" stroke="#e0f2fe" stroke-width="1.5" opacity="0.95"/>
+      <path d="M 60 165 C 75 178 95 188 115 188" stroke="#cbd5e1" stroke-width="1" fill="none"/>
+      <!-- Right Wing -->
+      <path d="M 180 175 C 210 150 240 140 260 160 C 255 180 235 195 215 205 C 195 200 185 190 180 185 Z" fill="#ffffff" stroke="#e0f2fe" stroke-width="1.5" opacity="0.95"/>
+      <path d="M 240 165 C 225 178 205 188 185 188" stroke="#cbd5e1" stroke-width="1" fill="none"/>
     `,
   }),
 ];
