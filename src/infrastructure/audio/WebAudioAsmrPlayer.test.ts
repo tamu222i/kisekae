@@ -22,13 +22,11 @@ describe('WebAudioAsmrPlayer', () => {
     expect(player.isMuted).toBe(false);
   });
 
-  it('safely plays all 5 sound types without crashing even if AudioContext is mocked or unavailable', () => {
+  it('safely plays all 20 sound types without crashing even if AudioContext is mocked or unavailable', () => {
     expect(() => {
-      player.play(AsmrSoundType.BUBBLE_WRAP);
-      player.play(AsmrSoundType.SOAP_CUTTING);
-      player.play(AsmrSoundType.SLIME);
-      player.play(AsmrSoundType.KEYBOARD);
-      player.play(AsmrSoundType.CRYSTAL_TAP);
+      Object.values(AsmrSoundType).forEach((soundType) => {
+        player.play(soundType);
+      });
     }).not.toThrow();
   });
 });

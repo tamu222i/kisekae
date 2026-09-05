@@ -7,12 +7,11 @@ describe('InMemoryAsmrToyRepository', () => {
     const repo = new InMemoryAsmrToyRepository(DEFAULT_ASMR_TOYS);
     const toys = await repo.getAll();
 
-    expect(toys).toHaveLength(5);
+    expect(toys).toHaveLength(20);
     const ids = toys.map((t) => t.id);
     expect(ids).toContain('toy_bubble_wrap');
-    expect(ids).toContain('toy_soap_cutting');
-    expect(ids).toContain('toy_slime');
-    expect(ids).toContain('toy_keyboard');
+    expect(ids).toContain('toy_potato_chips');
+    expect(ids).toContain('toy_shaved_ice');
     expect(ids).toContain('toy_crystal_tap');
   });
 

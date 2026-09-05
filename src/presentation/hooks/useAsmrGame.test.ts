@@ -43,7 +43,7 @@ describe('useAsmrGame hook', () => {
     });
 
     expect(result.current.studio).not.toBeNull();
-    expect(result.current.toys.length).toBe(5);
+    expect(result.current.toys.length).toBe(20);
     expect(result.current.activeToy?.id).toBe('toy_bubble_wrap');
     expect(result.current.studio?.coins).toBe(0);
   });
