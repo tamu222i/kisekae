@@ -58,5 +58,42 @@ describe('itemsData asset catalog', () => {
     expect(bunnyEars).toBeDefined();
     expect(angelWings).toBeDefined();
   });
+
+  it('includes over 20 additional ultra-cute clothes and accessories', async () => {
+    const repo = createDefaultItemRepository();
+    const newItems = [
+      'tops_cat_sweater',
+      'tops_cardigan_pastel',
+      'tops_offshoulder_ribbon',
+      'tops_chinese_blouse',
+      'bottoms_chinese_skirt',
+      'bottoms_tulle_skirt',
+      'bottoms_check_pants',
+      'bottoms_frill_shorts',
+      'dress_princess_pastel',
+      'dress_alice_blue',
+      'dress_cherry_gingham',
+      'dress_chinese_qipao',
+      'dress_nightwear_bear',
+      'dress_angel_wedding',
+      'dress_school_idol',
+      'dress_witch_gothic',
+      'shoes_glass_slippers',
+      'shoes_bear_slippers',
+      'shoes_ribbon_heels',
+      'shoes_mary_jane',
+      'acc_tiara_sparkle',
+      'acc_heart_sunglasses',
+      'acc_panda_ears',
+      'acc_halo_angel',
+    ];
+
+    expect(newItems.length).toBeGreaterThanOrEqual(20);
+
+    for (const id of newItems) {
+      const item = await repo.getById(id);
+      expect(item, `Item ${id} should be defined in catalog`).toBeDefined();
+    }
+  });
 });
 
