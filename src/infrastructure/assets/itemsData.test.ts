@@ -95,5 +95,53 @@ describe('itemsData asset catalog', () => {
       expect(item, `Item ${id} should be defined in catalog`).toBeDefined();
     }
   });
+
+  it('includes 30 cute and stylish eyes, mouths, and backgrounds', async () => {
+    const repo = createDefaultItemRepository();
+    const newItems = [
+      // 10 EYES
+      'eyes_ruby_red',
+      'eyes_violet_mystic',
+      'eyes_heart_pink',
+      'eyes_golden_amber',
+      'eyes_droopy_puppy',
+      'eyes_tsundere_cat',
+      'eyes_starry_galaxy',
+      'eyes_sweet_sleepy',
+      'eyes_happy_closed',
+      'eyes_nezuko_pink',
+      // 10 MOUTH
+      'mouth_pout_shy',
+      'mouth_chupatto_bubble',
+      'mouth_tongue_wink',
+      'mouth_sparkle_teeth',
+      'mouth_heart_kiss',
+      'mouth_surprised_o',
+      'mouth_glamour_red',
+      'mouth_cat_fang',
+      'mouth_freckles_smile',
+      'mouth_drool_sleepy',
+      // 10 BACKGROUND
+      'bg_cherry_blossom',
+      'bg_pastel_cloud_rainbow',
+      'bg_tea_party',
+      'bg_gothic_cathedral',
+      'bg_cafe_terrace',
+      'bg_sweet_candy_shop',
+      'bg_underwater_aquarium',
+      'bg_heart_pattern',
+      'bg_sunset_beach',
+      'bg_cyber_neon',
+    ];
+
+    expect(newItems).toHaveLength(30);
+
+    for (const id of newItems) {
+      const item = await repo.getById(id);
+      expect(item, `Item ${id} should be defined in catalog`).toBeDefined();
+      expect(item?.svgContent.length).toBeGreaterThan(10);
+      expect(item?.name.length).toBeGreaterThan(0);
+    }
+  });
 });
 
