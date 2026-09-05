@@ -143,5 +143,76 @@ describe('itemsData asset catalog', () => {
       expect(item?.name.length).toBeGreaterThan(0);
     }
   });
+
+  it('includes exactly 100 famous anime inspired costume items', async () => {
+    const { ANIME_ITEMS } = await import('./animeItemsData');
+    expect(ANIME_ITEMS).toHaveLength(100);
+    expect(ALL_ITEMS.length).toBe(213);
+
+    const repo = createDefaultItemRepository();
+
+    // Verify key iconic items across all categories
+    const sampleIds = [
+      // 1. One-piece / dresses
+      'dress_anime_sailor_moon',
+      'dress_anime_eva_unit01',
+      'dress_anime_madoka_pink',
+      'dress_anime_cardcaptor_pink',
+      'dress_anime_kiki_navy',
+      'dress_anime_eden_uniform',
+      'dress_anime_thorn_princess',
+      'dress_anime_frieren_robe',
+      'dress_anime_bkomachi_idol',
+      'dress_anime_sao_asuna',
+      // 2. Tops
+      'tops_anime_zenitsu_haori',
+      'tops_anime_goku_orange_gi',
+      'tops_anime_vegeta_armor',
+      'tops_anime_luffy_red_vest',
+      'tops_anime_naruto_jacket',
+      'tops_anime_akatsuki_cloak',
+      'tops_anime_itadori_hoodie',
+      'tops_anime_scout_jacket',
+      'tops_anime_deku_jumpsuit',
+      'tops_anime_bocchi_track',
+      // 3. Bottoms
+      'bottoms_anime_luffy_denim',
+      'bottoms_anime_demon_hakama',
+      'bottoms_anime_scout_pants',
+      'bottoms_anime_goku_pants',
+      'bottoms_anime_eden_skirt',
+      // 4. Shoes
+      'shoes_anime_deku_sneakers',
+      'shoes_anime_shinobi_sandals',
+      'shoes_anime_scout_boots',
+      'shoes_anime_sailor_heels',
+      // 5. Accessories
+      'acc_anime_straw_hat',
+      'acc_anime_leaf_headband',
+      'acc_anime_tanjiro_earrings',
+      'acc_anime_inosuke_hood',
+      'acc_anime_gojo_blindfold',
+      'acc_anime_moon_tiara',
+      'acc_anime_kiki_bow',
+      'acc_anime_ace_hat',
+      'acc_anime_anbu_mask',
+      'acc_anime_anya_horns',
+    ];
+
+    for (const id of sampleIds) {
+      const item = await repo.getById(id);
+      expect(item, `Anime item ${id} must exist`).toBeDefined();
+      expect(item?.svgContent.length).toBeGreaterThan(15);
+      expect(item?.name.length).toBeGreaterThan(0);
+    }
+
+    // Verify all 100 items pass basic integrity check
+    for (const animeItem of ANIME_ITEMS) {
+      expect(animeItem.id.length).toBeGreaterThan(0);
+      expect(animeItem.name.length).toBeGreaterThan(0);
+      expect(animeItem.svgContent.length).toBeGreaterThan(10);
+      expect(Object.values(SlotCategory)).toContain(animeItem.slotCategory);
+    }
+  });
 });
 

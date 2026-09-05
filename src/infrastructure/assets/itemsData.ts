@@ -1,6 +1,7 @@
 import { Item } from '../../domain/models/Item';
 import { SlotCategory } from '../../domain/models/SlotCategory';
 import { InMemoryItemRepository } from '../repositories/InMemoryItemRepository';
+import { ANIME_ITEMS } from './animeItemsData';
 
 export const ALL_ITEMS: readonly Item[] = [
   // ==========================================
@@ -2321,6 +2322,7 @@ export const ALL_ITEMS: readonly Item[] = [
       <polygon points="150,42 152,46 156,47 152,49 150,53 148,49 144,47 148,46" fill="#ffffff"/>
     `,
   }),
+  ...ANIME_ITEMS,
 ];
 
 export function createDefaultItemRepository(): InMemoryItemRepository {
