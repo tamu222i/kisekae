@@ -416,6 +416,76 @@ export const ALL_ITEMS: readonly Item[] = [
       <path d="M 117 275 Q 150 282 183 275" stroke="#e2e8f0" stroke-width="2.5" fill="none"/>
     `,
   }),
+  new Item({
+    id: 'bottoms_chinese_skirt',
+    name: 'チャイナスリットスカート',
+    slotCategory: SlotCategory.BOTTOMS,
+    svgContent: `
+      <!-- Red Chinese wrap skirt -->
+      <path d="M 130 225 L 170 225 L 176 275 L 124 275 Z" fill="#dc2626"/>
+      <!-- Gold cloud border at hem -->
+      <path d="M 124 270 Q 150 274 176 270" stroke="#facc15" stroke-width="2.5" fill="none"/>
+      <!-- Side slit with gold frog knot -->
+      <line x1="162" y1="248" x2="164" y2="275" stroke="#991b1b" stroke-width="2"/>
+      <circle cx="162" cy="248" r="2.5" fill="#facc15"/>
+    `,
+  }),
+  new Item({
+    id: 'bottoms_tulle_skirt',
+    name: '星屑チュールスカート',
+    slotCategory: SlotCategory.BOTTOMS,
+    svgContent: `
+      <!-- Lavender base skirt -->
+      <path d="M 130 225 L 170 225 L 182 275 L 118 275 Z" fill="#e9d5ff"/>
+      <!-- Puffy translucent tulle overlay (Pink) -->
+      <path d="M 128 226 L 172 226 L 188 280 L 112 280 Z" fill="#f5d0fe" opacity="0.8"/>
+      <!-- Golden glitter stars -->
+      <circle cx="132" cy="245" r="2" fill="#fde047"/>
+      <circle cx="152" cy="255" r="2.5" fill="#fde047"/>
+      <circle cx="168" cy="248" r="2" fill="#fde047"/>
+      <circle cx="140" cy="268" r="2" fill="#fde047"/>
+      <circle cx="160" cy="272" r="2.2" fill="#fde047"/>
+      <!-- Scalloped Hem -->
+      <path d="M 112 280 Q 131 286 150 280 Q 169 286 188 280" stroke="#ffffff" stroke-width="3" fill="none"/>
+    `,
+  }),
+  new Item({
+    id: 'bottoms_check_pants',
+    name: 'ピンクチェックパンツ',
+    slotCategory: SlotCategory.BOTTOMS,
+    svgContent: `
+      <!-- Pastel Pink Checked Wide Trousers -->
+      <path d="M 130 225 L 170 225 L 174 285 L 152 285 L 150 245 L 148 285 L 126 285 Z" fill="#fbcfe8"/>
+      <!-- Grid Lines -->
+      <line x1="130" y1="240" x2="170" y2="240" stroke="#f472b6" stroke-width="1.2"/>
+      <line x1="128" y1="260" x2="172" y2="260" stroke="#f472b6" stroke-width="1.2"/>
+      <line x1="138" y1="225" x2="136" y2="285" stroke="#f472b6" stroke-width="1.2"/>
+      <line x1="162" y1="225" x2="164" y2="285" stroke="#f472b6" stroke-width="1.2"/>
+      <!-- Suspenders -->
+      <line x1="136" y1="180" x2="136" y2="225" stroke="#78350f" stroke-width="2"/>
+      <line x1="164" y1="180" x2="164" y2="225" stroke="#78350f" stroke-width="2"/>
+      <circle cx="136" cy="226" r="2" fill="#d97706"/>
+      <circle cx="164" cy="226" r="2" fill="#d97706"/>
+    `,
+  }),
+  new Item({
+    id: 'bottoms_frill_shorts',
+    name: 'レースかぼちゃパンツ',
+    slotCategory: SlotCategory.BOTTOMS,
+    svgContent: `
+      <!-- Puffy Bloomer Shorts -->
+      <path d="M 130 225 L 170 225 L 178 260 L 153 260 L 150 248 L 147 260 L 122 260 Z" fill="#fef2f2"/>
+      <!-- Left leg puff -->
+      <ellipse cx="135" cy="250" rx="14" ry="12" fill="#fef2f2"/>
+      <ellipse cx="165" cy="250" rx="14" ry="12" fill="#fef2f2"/>
+      <!-- Ruffled Leg cuffs -->
+      <path d="M 122 258 Q 135 264 148 258" stroke="#f472b6" stroke-width="2.5" fill="none"/>
+      <path d="M 152 258 Q 165 264 178 258" stroke="#f472b6" stroke-width="2.5" fill="none"/>
+      <!-- Little Pink Side Bows -->
+      <circle cx="123" cy="256" r="2" fill="#ec4899"/>
+      <circle cx="177" cy="256" r="2" fill="#ec4899"/>
+    `,
+  }),
 
   // ==========================================
   // TOPS (z-index: 70)
@@ -610,6 +680,86 @@ export const ALL_ITEMS: readonly Item[] = [
       <circle cx="156" cy="222" r="1.5" fill="#fef3c7"/>
     `,
   }),
+  new Item({
+    id: 'tops_cat_sweater',
+    name: 'ねこ耳柄セーター',
+    slotCategory: SlotCategory.TOPS,
+    svgContent: `
+      <!-- Cream White Knit Sweater -->
+      <path d="M 125 166 L 175 166 L 176 235 L 124 235 Z" fill="#fdf4ff"/>
+      <path d="M 125 166 L 108 215 L 120 220 L 130 185 Z" fill="#fdf4ff"/>
+      <path d="M 175 166 L 192 215 L 180 220 L 170 185 Z" fill="#fdf4ff"/>
+      <!-- Ribbed Hem -->
+      <rect x="124" y="230" width="52" height="5" fill="#fae8ff"/>
+      <!-- Cat Face Emblem -->
+      <ellipse cx="150" cy="200" rx="14" ry="11" fill="#f472b6"/>
+      <!-- Cat Ears -->
+      <polygon points="138,192 142,183 146,191" fill="#f472b6"/>
+      <polygon points="154,191 158,183 162,192" fill="#f472b6"/>
+      <!-- Closed cute happy eyes & nose -->
+      <path d="M 142 199 Q 145 202 148 199" stroke="#ffffff" stroke-width="1.2" fill="none"/>
+      <path d="M 152 199 Q 155 202 158 199" stroke="#ffffff" stroke-width="1.2" fill="none"/>
+      <circle cx="150" cy="203" r="1" fill="#ffffff"/>
+    `,
+  }),
+  new Item({
+    id: 'tops_cardigan_pastel',
+    name: 'パステルゆるカーデ',
+    slotCategory: SlotCategory.TOPS,
+    svgContent: `
+      <!-- White Camisole Inner -->
+      <path d="M 138 170 L 162 170 L 162 230 L 138 230 Z" fill="#ffffff"/>
+      <!-- Oversized Lavender Cardigan -->
+      <path d="M 123 166 L 177 166 L 178 238 L 162 238 L 150 185 L 138 238 L 122 238 Z" fill="#e9d5ff"/>
+      <!-- Slouchy Sleeves -->
+      <path d="M 123 166 L 100 215 L 118 225 L 130 185 Z" fill="#e9d5ff"/>
+      <path d="M 177 166 L 200 215 L 182 225 L 170 185 Z" fill="#e9d5ff"/>
+      <!-- Candy Colored Buttons -->
+      <circle cx="150" cy="195" r="2.5" fill="#f472b6"/>
+      <circle cx="150" cy="208" r="2.5" fill="#fde047"/>
+      <circle cx="150" cy="221" r="2.5" fill="#38bdf8"/>
+    `,
+  }),
+  new Item({
+    id: 'tops_offshoulder_ribbon',
+    name: 'オフショルリボンブラウス',
+    slotCategory: SlotCategory.TOPS,
+    svgContent: `
+      <!-- Off-shoulder ruffle frill -->
+      <path d="M 115 178 Q 150 186 185 178 L 182 186 Q 150 194 118 186 Z" fill="#fbcfe8"/>
+      <!-- Main Blouse Body -->
+      <path d="M 130 182 L 170 182 L 171 230 L 129 230 Z" fill="#fdf2f8"/>
+      <!-- Short puffy ruffled sleeves -->
+      <ellipse cx="118" cy="190" rx="7" ry="9" fill="#fbcfe8"/>
+      <ellipse cx="182" cy="190" rx="7" ry="9" fill="#fbcfe8"/>
+      <!-- Center Red Ribbon Bow -->
+      <circle cx="150" cy="186" r="3" fill="#e11d48"/>
+      <polygon points="144,183 150,186 142,192" fill="#e11d48"/>
+      <polygon points="156,183 150,186 158,192" fill="#e11d48"/>
+    `,
+  }),
+  new Item({
+    id: 'tops_chinese_blouse',
+    name: 'チャイナ風ブラウス',
+    slotCategory: SlotCategory.TOPS,
+    svgContent: `
+      <!-- Red Mandarin Collar Blouse -->
+      <path d="M 130 166 L 170 166 L 172 230 L 128 230 Z" fill="#dc2626"/>
+      <!-- Mandarin Stand-up Collar -->
+      <path d="M 143 162 L 157 162 L 157 167 L 143 167 Z" fill="#dc2626" stroke="#facc15" stroke-width="1"/>
+      <!-- Asymmetric diagonal front opening -->
+      <path d="M 157 166 Q 166 178 172 195" stroke="#facc15" stroke-width="1.8" fill="none"/>
+      <!-- Gold Frog Knots -->
+      <circle cx="150" cy="165" r="2" fill="#facc15"/>
+      <circle cx="160" cy="175" r="2" fill="#facc15"/>
+      <circle cx="166" cy="188" r="2" fill="#facc15"/>
+      <!-- Capped Sleeves with gold trim -->
+      <path d="M 130 166 L 118 185 L 126 188 L 132 178 Z" fill="#dc2626"/>
+      <path d="M 170 166 L 182 185 L 174 188 L 168 178 Z" fill="#dc2626"/>
+      <line x1="118" y1="185" x2="126" y2="188" stroke="#facc15" stroke-width="1.5"/>
+      <line x1="182" y1="185" x2="174" y2="188" stroke="#facc15" stroke-width="1.5"/>
+    `,
+  }),
 
   // ==========================================
   // ONE PIECE DRESSES (z-index: 75)
@@ -773,6 +923,192 @@ export const ALL_ITEMS: readonly Item[] = [
       <path d="M 112 285 Q 150 295 188 285" stroke="#ffffff" stroke-width="4" stroke-dasharray="3,2" fill="none"/>
     `,
   }),
+  new Item({
+    id: 'dress_princess_pastel',
+    name: 'プリンセスブルードレス',
+    slotCategory: SlotCategory.ONE_PIECE,
+    conflictSlots: [SlotCategory.TOPS, SlotCategory.BOTTOMS],
+    svgContent: `
+      <!-- Cinderella Sky Blue Ballgown -->
+      <path d="M 128 166 L 172 166 L 168 215 L 132 215 Z" fill="#38bdf8"/>
+      <polygon points="144,166 156,166 150,185" fill="#ffffff"/>
+      <!-- Silver sparkle gem -->
+      <polygon points="150,180 152,184 156,185 152,186 150,190 148,186 144,185 148,184" fill="#fef08a"/>
+      <!-- Puffy sleeves -->
+      <ellipse cx="120" cy="176" rx="9" ry="11" fill="#bae6fd"/>
+      <ellipse cx="180" cy="176" rx="9" ry="11" fill="#bae6fd"/>
+      <!-- Grand Flared Ballgown Skirt -->
+      <path d="M 132 215 L 168 215 L 192 288 L 108 288 Z" fill="#38bdf8"/>
+      <!-- White Draped Side Panniers -->
+      <path d="M 132 215 Q 120 245 138 255 Q 148 240 138 215" fill="#ffffff" opacity="0.9"/>
+      <path d="M 168 215 Q 180 245 162 255 Q 152 240 162 215" fill="#ffffff" opacity="0.9"/>
+      <!-- Sparkles -->
+      <circle cx="150" cy="245" r="2.5" fill="#ffffff"/>
+      <circle cx="135" cy="275" r="2" fill="#ffffff"/>
+      <circle cx="165" cy="275" r="2" fill="#ffffff"/>
+      <path d="M 108 288 Q 150 298 192 288" stroke="#bae6fd" stroke-width="4" fill="none"/>
+    `,
+  }),
+  new Item({
+    id: 'dress_alice_blue',
+    name: 'アリスのエプロンドレス',
+    slotCategory: SlotCategory.ONE_PIECE,
+    conflictSlots: [SlotCategory.TOPS, SlotCategory.BOTTOMS],
+    svgContent: `
+      <!-- Alice Sky Blue Dress -->
+      <path d="M 128 166 L 172 166 L 168 215 L 132 215 Z" fill="#0284c7"/>
+      <ellipse cx="122" cy="176" rx="8" ry="10" fill="#0284c7"/>
+      <ellipse cx="178" cy="176" rx="8" ry="10" fill="#0284c7"/>
+      <!-- Skirt -->
+      <path d="M 132 215 L 168 215 L 186 282 L 114 282 Z" fill="#0284c7"/>
+      <!-- White Pinafore Apron -->
+      <path d="M 138 170 L 162 170 L 165 270 L 135 270 Z" fill="#ffffff"/>
+      <!-- Apron Frilly Straps -->
+      <path d="M 134 166 L 140 215 M 166 166 L 160 215" stroke="#ffffff" stroke-width="4"/>
+      <!-- Playing Card Heart Symbol -->
+      <path d="M 148 240 C 148 236 144 236 144 240 C 144 244 150 248 150 248 C 150 248 156 244 156 240 C 156 236 152 236 152 240 Z" fill="#ef4444"/>
+      <!-- Waist Ribbon Bow -->
+      <circle cx="150" cy="214" r="3" fill="#18181b"/>
+      <polygon points="144,212 150,214 145,219" fill="#18181b"/>
+      <polygon points="156,212 150,214 155,219" fill="#18181b"/>
+    `,
+  }),
+  new Item({
+    id: 'dress_cherry_gingham',
+    name: 'チェリーギンガムワンピ',
+    slotCategory: SlotCategory.ONE_PIECE,
+    conflictSlots: [SlotCategory.TOPS, SlotCategory.BOTTOMS],
+    svgContent: `
+      <!-- Red Gingham Check Dress -->
+      <path d="M 130 168 L 170 168 L 169 220 L 131 220 Z" fill="#fca5a5"/>
+      <path d="M 131 220 L 169 220 L 186 280 L 114 280 Z" fill="#fca5a5"/>
+      <!-- Checks -->
+      <rect x="135" y="172" width="8" height="8" fill="#ef4444"/>
+      <rect x="151" y="172" width="8" height="8" fill="#ef4444"/>
+      <rect x="143" y="185" width="8" height="8" fill="#ef4444"/>
+      <rect x="159" y="185" width="8" height="8" fill="#ef4444"/>
+      <rect x="135" y="230" width="10" height="10" fill="#ef4444"/>
+      <rect x="155" y="230" width="10" height="10" fill="#ef4444"/>
+      <rect x="145" y="245" width="10" height="10" fill="#ef4444"/>
+      <rect x="165" y="245" width="10" height="10" fill="#ef4444"/>
+      <!-- Embroidered Cherries -->
+      <circle cx="147" cy="204" r="2.5" fill="#dc2626"/>
+      <circle cx="153" cy="205" r="2.5" fill="#dc2626"/>
+      <path d="M 147 202 Q 150 196 150 198 Q 150 196 153 203" stroke="#16a34a" stroke-width="1.2" fill="none"/>
+      <!-- Eyelet Lace Hem -->
+      <path d="M 114 280 Q 150 288 186 280" stroke="#ffffff" stroke-width="3" stroke-dasharray="3,2" fill="none"/>
+    `,
+  }),
+  new Item({
+    id: 'dress_chinese_qipao',
+    name: '蓮のチャイナドレス',
+    slotCategory: SlotCategory.ONE_PIECE,
+    conflictSlots: [SlotCategory.TOPS, SlotCategory.BOTTOMS],
+    svgContent: `
+      <!-- Mint Green Silk Qipao with Slit -->
+      <path d="M 130 166 L 170 166 L 174 282 L 126 282 Z" fill="#6ee7b7"/>
+      <!-- Stand-up Mandarin Collar -->
+      <path d="M 143 162 L 157 162 L 157 167 L 143 167 Z" fill="#6ee7b7" stroke="#facc15" stroke-width="1"/>
+      <!-- Gold diagonal piping -->
+      <path d="M 157 166 Q 166 178 172 195" stroke="#facc15" stroke-width="1.5" fill="none"/>
+      <!-- Lotus Flower Motifs -->
+      <path d="M 145 235 C 140 230 145 220 150 228 C 155 220 160 230 155 235 Z" fill="#f472b6"/>
+      <circle cx="150" cy="232" r="1.5" fill="#fde047"/>
+      <!-- Gold Slit on left side -->
+      <line x1="134" y1="250" x2="132" y2="282" stroke="#facc15" stroke-width="2"/>
+      <circle cx="134" cy="250" r="2" fill="#facc15"/>
+    `,
+  }),
+  new Item({
+    id: 'dress_nightwear_bear',
+    name: 'もこもこくまパジャマ',
+    slotCategory: SlotCategory.ONE_PIECE,
+    conflictSlots: [SlotCategory.TOPS, SlotCategory.BOTTOMS],
+    svgContent: `
+      <!-- Soft Yellow Cozy Nightgown -->
+      <path d="M 126 166 L 174 166 L 180 278 L 120 278 Z" fill="#fef08a"/>
+      <!-- Loose Cozy Sleeves -->
+      <path d="M 126 166 L 110 215 L 122 220 L 132 185 Z" fill="#fef08a"/>
+      <path d="M 174 166 L 190 215 L 178 220 L 168 185 Z" fill="#fef08a"/>
+      <!-- Big Bear Face on Chest -->
+      <ellipse cx="150" cy="205" rx="14" ry="11" fill="#fef9c3"/>
+      <!-- Bear Ears on chest -->
+      <circle cx="140" cy="196" r="3.5" fill="#fef9c3"/>
+      <circle cx="160" cy="196" r="3.5" fill="#fef9c3"/>
+      <!-- Bear Snout -->
+      <ellipse cx="150" cy="206" rx="5" ry="3.5" fill="#ffffff"/>
+      <circle cx="150" cy="205" r="1.5" fill="#78350f"/>
+      <circle cx="145" cy="203" r="1" fill="#78350f"/>
+      <circle cx="155" cy="203" r="1" fill="#78350f"/>
+    `,
+  }),
+  new Item({
+    id: 'dress_angel_wedding',
+    name: '純白エンジェルレースドレス',
+    slotCategory: SlotCategory.ONE_PIECE,
+    conflictSlots: [SlotCategory.TOPS, SlotCategory.BOTTOMS],
+    svgContent: `
+      <!-- Bridal White Lace Gown -->
+      <path d="M 128 166 L 172 166 L 168 215 L 132 215 Z" fill="#f8fafc"/>
+      <polygon points="144,166 156,166 150,185" fill="#f1f5f9"/>
+      <!-- Flowing Tiered Lace Skirt -->
+      <path d="M 132 215 L 168 215 L 192 288 L 108 288 Z" fill="#f8fafc"/>
+      <!-- Semi-translucent Overlay -->
+      <path d="M 128 220 Q 150 255 172 220 Q 185 270 115 270 Z" fill="#ffffff" opacity="0.6"/>
+      <!-- Rose flower belt -->
+      <circle cx="150" cy="215" r="3.5" fill="#fda4af"/>
+      <circle cx="144" cy="216" r="2.5" fill="#f43f5e"/>
+      <circle cx="156" cy="216" r="2.5" fill="#f43f5e"/>
+      <!-- Hem lace waves -->
+      <path d="M 108 288 Q 150 298 192 288" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="3,2" fill="none"/>
+    `,
+  }),
+  new Item({
+    id: 'dress_school_idol',
+    name: 'アイドルステージ衣装',
+    slotCategory: SlotCategory.ONE_PIECE,
+    conflictSlots: [SlotCategory.TOPS, SlotCategory.BOTTOMS],
+    svgContent: `
+      <!-- Navy Blue Idol Jacket & Pink Plaid Skirt -->
+      <path d="M 128 166 L 172 166 L 168 215 L 132 215 Z" fill="#1e1b4b"/>
+      <!-- Gold Epaulets on shoulders -->
+      <rect x="124" y="165" width="8" height="4" fill="#facc15"/>
+      <rect x="168" y="165" width="8" height="4" fill="#facc15"/>
+      <!-- Golden Double Breast Buttons -->
+      <circle cx="146" cy="180" r="2" fill="#facc15"/>
+      <circle cx="154" cy="180" r="2" fill="#facc15"/>
+      <circle cx="146" cy="195" r="2" fill="#facc15"/>
+      <circle cx="154" cy="195" r="2" fill="#facc15"/>
+      <!-- Pleated Pink Plaid Idol Skirt -->
+      <path d="M 132 215 L 168 215 L 186 275 L 114 275 Z" fill="#f472b6"/>
+      <path d="M 114 275 Q 150 282 186 275" stroke="#ffffff" stroke-width="3" fill="none"/>
+      <!-- Star Mic Belt -->
+      <rect x="130" y="213" width="40" height="4" fill="#facc15"/>
+      <polygon points="150,210 152,214 156,215 152,217 150,221 148,217 144,215 148,214" fill="#ffffff"/>
+    `,
+  }),
+  new Item({
+    id: 'dress_witch_gothic',
+    name: '小悪魔ゴシックドレス',
+    slotCategory: SlotCategory.ONE_PIECE,
+    conflictSlots: [SlotCategory.TOPS, SlotCategory.BOTTOMS],
+    svgContent: `
+      <!-- Deep Purple & Black Gothic Dress -->
+      <path d="M 128 166 L 172 166 L 168 215 L 132 215 Z" fill="#3b0764"/>
+      <!-- Bat-wing Scalloped Collar -->
+      <path d="M 134 166 Q 142 178 150 172 Q 158 178 166 166" fill="#1e1b4b"/>
+      <!-- Corset Cross-lacing -->
+      <line x1="146" y1="180" x2="154" y2="190" stroke="#c084fc" stroke-width="1.5"/>
+      <line x1="154" y1="180" x2="146" y2="190" stroke="#c084fc" stroke-width="1.5"/>
+      <line x1="146" y1="190" x2="154" y2="200" stroke="#c084fc" stroke-width="1.5"/>
+      <line x1="154" y1="190" x2="146" y2="200" stroke="#c084fc" stroke-width="1.5"/>
+      <!-- Flared Jagged Bat Skirt -->
+      <path d="M 132 215 L 168 215 L 188 282 L 176 272 L 164 282 L 150 272 L 136 282 L 124 272 L 112 282 Z" fill="#3b0764"/>
+      <!-- Little devil wings at waist -->
+      <polygon points="128,214 118,206 122,216" fill="#1e1b4b"/>
+      <polygon points="172,214 182,206 178,216" fill="#1e1b4b"/>
+    `,
+  }),
 
   // ==========================================
   // SHOES (z-index: 80)
@@ -855,6 +1191,96 @@ export const ALL_ITEMS: readonly Item[] = [
       <!-- Strawberry Ribbon Ties -->
       <circle cx="135" cy="336" r="2.5" fill="#dc2626"/>
       <circle cx="165" cy="336" r="2.5" fill="#dc2626"/>
+    `,
+  }),
+  new Item({
+    id: 'shoes_glass_slippers',
+    name: 'ガラスの靴風パンプス',
+    slotCategory: SlotCategory.SHOES,
+    svgContent: `
+      <!-- Translucent Glass Slippers -->
+      <path d="M 125 348 C 125 344 144 344 144 348 L 145 358 L 124 358 Z" fill="#a5f3fc" opacity="0.85" stroke="#38bdf8" stroke-width="1"/>
+      <path d="M 156 348 C 156 344 175 344 175 348 L 176 358 L 155 358 Z" fill="#a5f3fc" opacity="0.85" stroke="#38bdf8" stroke-width="1"/>
+      <!-- Sparkle gems -->
+      <polygon points="135,348 136,351 139,352 136,353 135,356 134,353 131,352 134,351" fill="#ffffff"/>
+      <polygon points="166,348 167,351 170,352 167,353 166,356 165,353 162,352 165,351" fill="#ffffff"/>
+      <!-- Glass heel shimmer -->
+      <line x1="125" y1="357" x2="144" y2="357" stroke="#ffffff" stroke-width="1.5"/>
+      <line x1="156" y1="357" x2="175" y2="357" stroke="#ffffff" stroke-width="1.5"/>
+    `,
+  }),
+  new Item({
+    id: 'shoes_bear_slippers',
+    name: 'くまさんスリッパ',
+    slotCategory: SlotCategory.SHOES,
+    svgContent: `
+      <!-- Fluffy Bear Slippers -->
+      <ellipse cx="135" cy="352" rx="14" ry="9" fill="#b45309"/>
+      <ellipse cx="166" cy="352" rx="14" ry="9" fill="#b45309"/>
+      <!-- Bear Ears -->
+      <circle cx="125" cy="347" r="3.5" fill="#b45309"/>
+      <circle cx="125" cy="347" r="1.8" fill="#fef3c7"/>
+      <circle cx="145" cy="347" r="3.5" fill="#b45309"/>
+      <circle cx="145" cy="347" r="1.8" fill="#fef3c7"/>
+      <circle cx="156" cy="347" r="3.5" fill="#b45309"/>
+      <circle cx="156" cy="347" r="1.8" fill="#fef3c7"/>
+      <circle cx="176" cy="347" r="3.5" fill="#b45309"/>
+      <circle cx="176" cy="347" r="1.8" fill="#fef3c7"/>
+      <!-- Muzzle & Face -->
+      <ellipse cx="135" cy="354" rx="4.5" ry="3" fill="#fef3c7"/>
+      <circle cx="135" cy="353" r="1.2" fill="#78350f"/>
+      <circle cx="131" cy="351" r="1" fill="#78350f"/>
+      <circle cx="139" cy="351" r="1" fill="#78350f"/>
+      <ellipse cx="166" cy="354" rx="4.5" ry="3" fill="#fef3c7"/>
+      <circle cx="166" cy="353" r="1.2" fill="#78350f"/>
+      <circle cx="162" cy="351" r="1" fill="#78350f"/>
+      <circle cx="170" cy="351" r="1" fill="#78350f"/>
+    `,
+  }),
+  new Item({
+    id: 'shoes_ribbon_heels',
+    name: 'ピンクリボンヒール',
+    slotCategory: SlotCategory.SHOES,
+    svgContent: `
+      <!-- White Lace Ankle Socks -->
+      <path d="M 128 340 Q 135 344 142 340" stroke="#ffffff" stroke-width="3" fill="none"/>
+      <path d="M 158 340 Q 165 344 172 340" stroke="#ffffff" stroke-width="3" fill="none"/>
+      <!-- Pink Heels -->
+      <path d="M 125 348 C 125 344 144 344 144 348 L 145 358 L 124 358 Z" fill="#f472b6"/>
+      <path d="M 156 348 C 156 344 175 344 175 348 L 176 358 L 155 358 Z" fill="#f472b6"/>
+      <!-- Heel Lift -->
+      <rect x="124" y="354" width="4" height="5" fill="#db2777"/>
+      <rect x="155" y="354" width="4" height="5" fill="#db2777"/>
+      <!-- Front Bows -->
+      <circle cx="135" cy="349" r="2.5" fill="#ec4899"/>
+      <polygon points="131,347 135,349 130,352" fill="#ec4899"/>
+      <polygon points="139,347 135,349 140,352" fill="#ec4899"/>
+      <circle cx="166" cy="349" r="2.5" fill="#ec4899"/>
+      <polygon points="162,347 166,349 161,352" fill="#ec4899"/>
+      <polygon points="170,347 166,349 171,352" fill="#ec4899"/>
+    `,
+  }),
+  new Item({
+    id: 'shoes_mary_jane',
+    name: 'クラシックメリージェーン',
+    slotCategory: SlotCategory.SHOES,
+    svgContent: `
+      <!-- Frilly White Socks -->
+      <rect x="128" y="330" width="14" height="20" fill="#ffffff"/>
+      <rect x="158" y="330" width="14" height="20" fill="#ffffff"/>
+      <path d="M 127 330 Q 135 334 143 330" stroke="#fbcfe8" stroke-width="2" fill="none"/>
+      <path d="M 157 330 Q 165 334 173 330" stroke="#fbcfe8" stroke-width="2" fill="none"/>
+      <!-- Black Patent Leather Shoes -->
+      <path d="M 125 348 C 125 343 144 343 144 348 L 145 358 C 145 360 124 360 124 358 Z" fill="#0f172a"/>
+      <path d="M 156 348 C 156 343 175 343 175 348 L 176 358 C 176 360 155 360 155 358 Z" fill="#0f172a"/>
+      <!-- Ankle Straps & Silver Buckle -->
+      <line x1="127" y1="347" x2="143" y2="347" stroke="#0f172a" stroke-width="2.5"/>
+      <circle cx="141" cy="347" r="1.5" fill="#e2e8f0"/>
+      <line x1="157" y1="347" x2="173" y2="347" stroke="#0f172a" stroke-width="2.5"/>
+      <circle cx="171" cy="347" r="1.5" fill="#e2e8f0"/>
+      <!-- Gloss shine -->
+      <ellipse cx="132" cy="354" rx="3" ry="1.5" fill="#475569" opacity="0.6"/>
+      <ellipse cx="163" cy="354" rx="3" ry="1.5" fill="#475569" opacity="0.6"/>
     `,
   }),
 
@@ -1088,6 +1514,87 @@ export const ALL_ITEMS: readonly Item[] = [
       <!-- Right Wing -->
       <path d="M 180 175 C 210 150 240 140 260 160 C 255 180 235 195 215 205 C 195 200 185 190 180 185 Z" fill="#ffffff" stroke="#e0f2fe" stroke-width="1.5" opacity="0.95"/>
       <path d="M 240 165 C 225 178 205 188 185 188" stroke="#cbd5e1" stroke-width="1" fill="none"/>
+    `,
+  }),
+  new Item({
+    id: 'acc_tiara_sparkle',
+    name: 'きらきらティアラ',
+    slotCategory: SlotCategory.ACCESSORY,
+    svgContent: `
+      <!-- Sparkle Tiara -->
+      <!-- Tiara Band -->
+      <path d="M 132 84 Q 150 80 168 84" stroke="#e2e8f0" stroke-width="2.5" fill="none"/>
+      <!-- Tiara Peaks -->
+      <polygon points="150,68 146,81 154,81" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+      <polygon points="142,73 138,82 145,82" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+      <polygon points="158,73 155,82 162,82" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+      <polygon points="135,78 132,83 138,83" fill="#f8fafc"/>
+      <polygon points="165,78 162,83 168,83" fill="#f8fafc"/>
+      <!-- Center Heart / Star Gem -->
+      <circle cx="150" cy="74" r="3" fill="#f472b6"/>
+      <circle cx="150" cy="74" r="1.5" fill="#ffffff"/>
+      <circle cx="142" cy="77" r="1.8" fill="#67e8f9"/>
+      <circle cx="158" cy="77" r="1.8" fill="#67e8f9"/>
+    `,
+  }),
+  new Item({
+    id: 'acc_heart_sunglasses',
+    name: 'ハートサングラス',
+    slotCategory: SlotCategory.ACCESSORY,
+    svgContent: `
+      <!-- Pink Heart Sunglasses -->
+      <!-- Left Heart -->
+      <path d="M 135 120 C 135 120 122 112 122 105 C 122 100 128 98 135 106 C 142 98 148 100 148 105 C 148 112 135 120 135 120 Z" fill="#ec4899" opacity="0.85" stroke="#be123c" stroke-width="1.5"/>
+      <!-- Right Heart -->
+      <path d="M 165 120 C 165 120 152 112 152 105 C 152 100 158 98 165 106 C 172 98 178 100 178 105 C 178 112 165 120 165 120 Z" fill="#ec4899" opacity="0.85" stroke="#be123c" stroke-width="1.5"/>
+      <!-- Center Bridge & Temples -->
+      <line x1="145" y1="108" x2="155" y2="108" stroke="#be123c" stroke-width="2"/>
+      <line x1="122" y1="106" x2="108" y2="104" stroke="#be123c" stroke-width="2"/>
+      <line x1="178" y1="106" x2="192" y2="104" stroke="#be123c" stroke-width="2"/>
+      <!-- Glare reflection -->
+      <line x1="126" y1="104" x2="130" y2="110" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="156" y1="104" x2="160" y2="110" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+    `,
+  }),
+  new Item({
+    id: 'acc_panda_ears',
+    name: 'パンダ耳カチューシャ',
+    slotCategory: SlotCategory.ACCESSORY,
+    svgContent: `
+      <!-- Panda Ears Headband -->
+      <path d="M 108 98 C 118 78 182 78 192 98" stroke="#18181b" stroke-width="3.5" fill="none"/>
+      <!-- Left Ear -->
+      <ellipse cx="118" cy="74" rx="14" ry="13" fill="#18181b"/>
+      <ellipse cx="118" cy="74" rx="8" ry="7" fill="#f472b6" opacity="0.6"/>
+      <!-- Right Ear -->
+      <ellipse cx="182" cy="74" rx="14" ry="13" fill="#18181b"/>
+      <ellipse cx="182" cy="74" rx="8" ry="7" fill="#f472b6" opacity="0.6"/>
+      <!-- Pink Mini Bow on right ear -->
+      <circle cx="174" cy="80" r="2.5" fill="#f43f5e"/>
+      <polygon points="170,78 174,80 169,84" fill="#f43f5e"/>
+      <polygon points="178,78 174,80 179,84" fill="#f43f5e"/>
+    `,
+  }),
+  new Item({
+    id: 'acc_halo_angel',
+    name: '天使の光の輪',
+    slotCategory: SlotCategory.ACCESSORY,
+    svgContent: `
+      <!-- Glowing Angel Halo -->
+      <defs>
+        <linearGradient id="haloGlow" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#fef08a"/>
+          <stop offset="50%" stop-color="#facc15"/>
+          <stop offset="100%" stop-color="#fde047"/>
+        </linearGradient>
+      </defs>
+      <!-- Halo Ring -->
+      <ellipse cx="150" cy="56" rx="34" ry="10" fill="none" stroke="url(#haloGlow)" stroke-width="5"/>
+      <ellipse cx="150" cy="56" rx="34" ry="10" fill="none" stroke="#ffffff" stroke-width="1.8"/>
+      <!-- Floating Sparkles -->
+      <circle cx="120" cy="52" r="2" fill="#fef08a"/>
+      <circle cx="180" cy="52" r="2" fill="#fef08a"/>
+      <polygon points="150,42 152,46 156,47 152,49 150,53 148,49 144,47 148,46" fill="#ffffff"/>
     `,
   }),
 ];

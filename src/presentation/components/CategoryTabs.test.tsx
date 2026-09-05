@@ -8,7 +8,7 @@ describe('CategoryTabs Component', () => {
     const onSelect = vi.fn();
     const isEquipped = (cat: SlotCategory) => cat === SlotCategory.TOPS;
 
-    const { container } = render(
+    render(
       <CategoryTabs
         selectedCategory={SlotCategory.TOPS}
         onSelectCategory={onSelect}
