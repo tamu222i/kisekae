@@ -280,4 +280,13 @@
   2. `src/infrastructure/assets/trendyCuteItemsData.ts` を作成し、`itemsData.ts` へ結合。
   3. `itemsData.test.ts` に30アイテムの単体テストを追加し、カタログ数とSVG整合性を検証。
 
+---
+
+### #31 [2026-09-06T07:50:10Z] VS Code で編集中のファイルが自動で開くのを停止する設定の案内
+- **ユーザープロンプト**:
+  > vscodeで編集中のファイル開くのをとめて
+- **計画と対応**:
+  - AIエージェントがファイル編集（提案・書き込み）した際に自動でエディタタブが開くのを防止する設定（`antigravity.autoOpenFiles: false`）および、既存のタブ蓄積を防ぐプレビュー/タブ上限設定（`workbench.editor.enablePreview` / `workbench.editor.limit`）を解説・案内。
+
+
 
