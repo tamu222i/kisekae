@@ -2,6 +2,7 @@ import { Item } from '../../domain/models/Item';
 import { SlotCategory } from '../../domain/models/SlotCategory';
 import { InMemoryItemRepository } from '../repositories/InMemoryItemRepository';
 import { ANIME_ITEMS } from './animeItemsData';
+import { TRENDY_CUTE_ITEMS } from './trendyCuteItemsData';
 
 export const ALL_ITEMS: readonly Item[] = [
   // ==========================================
@@ -2323,6 +2324,7 @@ export const ALL_ITEMS: readonly Item[] = [
     `,
   }),
   ...ANIME_ITEMS,
+  ...TRENDY_CUTE_ITEMS,
 ];
 
 export function createDefaultItemRepository(): InMemoryItemRepository {

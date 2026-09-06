@@ -147,7 +147,7 @@ describe('itemsData asset catalog', () => {
   it('includes exactly 100 famous anime inspired costume items', async () => {
     const { ANIME_ITEMS } = await import('./animeItemsData');
     expect(ANIME_ITEMS).toHaveLength(100);
-    expect(ALL_ITEMS.length).toBe(213);
+    expect(ALL_ITEMS.length).toBe(243);
 
     const repo = createDefaultItemRepository();
 
@@ -216,6 +216,62 @@ describe('itemsData asset catalog', () => {
       expect(animeItem.svgContent.length).toBeGreaterThan(10);
       expect(Object.values(SlotCategory)).toContain(animeItem.slotCategory);
     }
+  });
+
+  it('contains 30 fashionable cute one-pieces and tops (Precure, AiPri, Chiikawa, Sumikko, Detective)', async () => {
+    const { TRENDY_CUTE_ITEMS } = await import('./trendyCuteItemsData');
+    expect(TRENDY_CUTE_ITEMS).toHaveLength(30);
+
+    const repo = createDefaultItemRepository();
+
+    // Verify sample items across all requested themes
+    const samples = [
+      'dress_trendy_precure_wonderful',
+      'dress_trendy_precure_friendy',
+      'dress_trendy_precure_nyamy',
+      'dress_trendy_precure_lilian',
+      'dress_trendy_precure_sky',
+      'tops_trendy_precure_prism',
+      'dress_trendy_aipri_himari',
+      'dress_trendy_aipri_mitsuki',
+      'dress_trendy_aipri_buzz',
+      'tops_trendy_aipri_check',
+      'tops_trendy_aipri_sailor',
+      'tops_trendy_aipri_rock',
+      'dress_trendy_chiikawa_fluffy',
+      'tops_trendy_hachiware_sweater',
+      'tops_trendy_usagi_hoodie',
+      'dress_trendy_momonga_frill',
+      'tops_trendy_kurimanju_cafe',
+      'dress_trendy_shisa_aloha',
+      'dress_trendy_sumikko_shirokuma',
+      'tops_trendy_sumikko_penguin',
+      'dress_trendy_sumikko_tonkatsu',
+      'tops_trendy_sumikko_neko',
+      'dress_trendy_sumikko_tokage',
+      'tops_trendy_sumikko_tapioca',
+      'dress_trendy_detective_cape',
+      'dress_trendy_detective_kid',
+      'tops_trendy_detective_bow',
+      'dress_trendy_detective_poirot',
+      'dress_trendy_yumekawa_dolly',
+      'tops_trendy_jirai_frill',
+    ];
+
+    for (const id of samples) {
+      const item = await repo.getById(id);
+      expect(item, `Item ${id} should exist in repository`).toBeDefined();
+      expect(item?.svgContent.length).toBeGreaterThan(20);
+      expect(item?.name.length).toBeGreaterThan(0);
+      expect(
+        item?.slotCategory === SlotCategory.ONE_PIECE || item?.slotCategory === SlotCategory.TOPS
+      ).toBe(true);
+    }
+
+    // Verify all item IDs are distinct in the entire catalog
+    const allIds = ALL_ITEMS.map((item) => item.id);
+    const uniqueIds = new Set(allIds);
+    expect(uniqueIds.size).toBe(allIds.length);
   });
 });
 
