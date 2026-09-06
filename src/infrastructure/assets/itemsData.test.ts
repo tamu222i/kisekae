@@ -147,7 +147,7 @@ describe('itemsData asset catalog', () => {
   it('includes exactly 100 famous anime inspired costume items', async () => {
     const { ANIME_ITEMS } = await import('./animeItemsData');
     expect(ANIME_ITEMS).toHaveLength(100);
-    expect(ALL_ITEMS.length).toBe(343);
+    expect(ALL_ITEMS.length).toBe(843);
 
     const repo = createDefaultItemRepository();
 
@@ -274,9 +274,9 @@ describe('itemsData asset catalog', () => {
     expect(uniqueIds.size).toBe(allIds.length);
   });
 
-  it('includes exactly 100 extra cute items across the 7 fewest categories, expanding catalog to 343 items', async () => {
+  it('includes exactly 100 extra cute items across the 7 fewest categories, expanding catalog to 843 items', async () => {
     const repo = createDefaultItemRepository();
-    expect(ALL_ITEMS.length).toBe(343);
+    expect(ALL_ITEMS.length).toBe(843);
 
     const hairFront = await repo.getByCategory(SlotCategory.HAIR_FRONT);
     const hairBack = await repo.getByCategory(SlotCategory.HAIR_BACK);
@@ -332,6 +332,81 @@ describe('itemsData asset catalog', () => {
     expect(baseBody.svgContent).toContain('bodyCheekBlush');
     expect(baseBody.svgContent).toContain('bodySkinSoftGrad');
     expect(baseBody.svgContent).toContain('camisoleGrad');
+  });
+
+  it('includes exactly 500 royal princess items across all categories, expanding catalog to 843 items', async () => {
+    const { PRINCESS_ITEMS } = await import('./princessItemsData');
+    expect(PRINCESS_ITEMS).toHaveLength(500);
+    expect(ALL_ITEMS.length).toBe(843);
+
+    const repo = createDefaultItemRepository();
+
+    // Verify category distribution of princess items
+    const dresses = PRINCESS_ITEMS.filter((i) => i.slotCategory === SlotCategory.ONE_PIECE);
+    const accs = PRINCESS_ITEMS.filter((i) => i.slotCategory === SlotCategory.ACCESSORY);
+    const hairFront = PRINCESS_ITEMS.filter((i) => i.slotCategory === SlotCategory.HAIR_FRONT);
+    const hairBack = PRINCESS_ITEMS.filter((i) => i.slotCategory === SlotCategory.HAIR_BACK);
+    const tops = PRINCESS_ITEMS.filter((i) => i.slotCategory === SlotCategory.TOPS);
+    const bottoms = PRINCESS_ITEMS.filter((i) => i.slotCategory === SlotCategory.BOTTOMS);
+    const shoes = PRINCESS_ITEMS.filter((i) => i.slotCategory === SlotCategory.SHOES);
+    const backgrounds = PRINCESS_ITEMS.filter((i) => i.slotCategory === SlotCategory.BACKGROUND);
+    const eyes = PRINCESS_ITEMS.filter((i) => i.slotCategory === SlotCategory.EYES);
+    const mouth = PRINCESS_ITEMS.filter((i) => i.slotCategory === SlotCategory.MOUTH);
+
+    expect(dresses).toHaveLength(100);
+    expect(accs).toHaveLength(80);
+    expect(hairFront).toHaveLength(50);
+    expect(hairBack).toHaveLength(50);
+    expect(tops).toHaveLength(50);
+    expect(bottoms).toHaveLength(50);
+    expect(shoes).toHaveLength(40);
+    expect(backgrounds).toHaveLength(30);
+    expect(eyes).toHaveLength(25);
+    expect(mouth).toHaveLength(25);
+
+    // Verify key iconic princess items exist and have rich SVG content
+    const sampleIds = [
+      'dress_princess_cinderella_1',
+      'dress_princess_snow_white_1',
+      'dress_princess_aurora_1',
+      'dress_princess_belle_1',
+      'dress_princess_ariel_1',
+      'dress_princess_rapunzel_1',
+      'dress_princess_jasmine_1',
+      'dress_princess_swan_white_1',
+      'dress_princess_diamond_1',
+      'dress_princess_starlight_1',
+      'acc_tiara_royal_diamond',
+      'acc_tiara_wing_ruby',
+      'acc_wand_star_sapphire',
+      'acc_veil_cathedral',
+      'acc_cape_fur_royal',
+      'hair_front_princess_blonde_1',
+      'hair_front_princess_pink_1',
+      'hair_back_princess_blonde_1',
+      'hair_back_princess_platinum_1',
+      'tops_princess_sky_1',
+      'bottoms_princess_sky_1',
+      'shoes_princess_sky_1',
+      'bg_princess_ballroom_gold',
+      'bg_princess_crystal_palace',
+      'eyes_princess_diamond',
+      'eyes_princess_sapphire',
+      'mouth_princess_noble_smile_pink',
+      'mouth_princess_radiant_smile_open',
+    ];
+
+    for (const id of sampleIds) {
+      const item = await repo.getById(id);
+      expect(item, `Princess item ${id} should exist in repository`).toBeDefined();
+      expect(item?.svgContent.length).toBeGreaterThan(20);
+      expect(item?.name.length).toBeGreaterThan(0);
+    }
+
+    // Verify all 843 item IDs in ALL_ITEMS are unique
+    const allIds = ALL_ITEMS.map((item) => item.id);
+    const uniqueIds = new Set(allIds);
+    expect(uniqueIds.size).toBe(allIds.length);
   });
 });
 
