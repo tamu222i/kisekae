@@ -147,7 +147,7 @@ describe('itemsData asset catalog', () => {
   it('includes exactly 100 famous anime inspired costume items', async () => {
     const { ANIME_ITEMS } = await import('./animeItemsData');
     expect(ANIME_ITEMS).toHaveLength(100);
-    expect(ALL_ITEMS.length).toBe(243);
+    expect(ALL_ITEMS.length).toBe(343);
 
     const repo = createDefaultItemRepository();
 
@@ -272,6 +272,66 @@ describe('itemsData asset catalog', () => {
     const allIds = ALL_ITEMS.map((item) => item.id);
     const uniqueIds = new Set(allIds);
     expect(uniqueIds.size).toBe(allIds.length);
+  });
+
+  it('includes exactly 100 extra cute items across the 7 fewest categories, expanding catalog to 343 items', async () => {
+    const repo = createDefaultItemRepository();
+    expect(ALL_ITEMS.length).toBe(343);
+
+    const hairFront = await repo.getByCategory(SlotCategory.HAIR_FRONT);
+    const hairBack = await repo.getByCategory(SlotCategory.HAIR_BACK);
+    const eyes = await repo.getByCategory(SlotCategory.EYES);
+    const mouth = await repo.getByCategory(SlotCategory.MOUTH);
+    const bg = await repo.getByCategory(SlotCategory.BACKGROUND);
+    const shoes = await repo.getByCategory(SlotCategory.SHOES);
+    const bottoms = await repo.getByCategory(SlotCategory.BOTTOMS);
+
+    // Verify minimum counts reflecting the additions (+20, +20, +15, +15, +10, +10, +10)
+    expect(hairFront.length).toBeGreaterThanOrEqual(26);
+    expect(hairBack.length).toBeGreaterThanOrEqual(26);
+    expect(eyes.length).toBeGreaterThanOrEqual(29);
+    expect(mouth.length).toBeGreaterThanOrEqual(28);
+    expect(bg.length).toBeGreaterThanOrEqual(25);
+    expect(shoes.length).toBeGreaterThanOrEqual(31);
+    expect(bottoms.length).toBeGreaterThanOrEqual(32);
+
+    // Verify key sample IDs across all 7 categories
+    const testIds = [
+      'hair_front_precure_wonderful_curls',
+      'hair_front_chiikawa_fluffy',
+      'hair_front_aipri_himari_sparkle',
+      'hair_back_precure_wonderful_twintail',
+      'hair_back_hachiware_soft_bob',
+      'hair_back_kimetsu_mitsuri_mega_braids',
+      'eyes_precure_wonderful_amber',
+      'eyes_chiikawa_tear_sparkle',
+      'eyes_detective_truth_blue',
+      'mouth_precure_open_happy',
+      'mouth_precure_cat_smile',
+      'mouth_chiikawa_wobbly_cute',
+      'bg_precure_sparkle_palace',
+      'bg_aipri_shining_stage',
+      'bg_chiikawa_flower_field',
+      'shoes_precure_wonderful_boots',
+      'shoes_chiikawa_fluffy_slippers',
+      'shoes_detective_oxford',
+      'bottoms_precure_wonderful_skirt',
+      'bottoms_chiikawa_bloomers',
+      'bottoms_kimetsu_hakama_skirt',
+    ];
+
+    for (const id of testIds) {
+      const item = await repo.getById(id);
+      expect(item, `Item ${id} must exist`).toBeDefined();
+      expect(item?.svgContent.length).toBeGreaterThan(20);
+      expect(item?.name.length).toBeGreaterThan(0);
+    }
+
+    // Verify base body has cute anime styling
+    const baseBody = await repo.getBaseBody();
+    expect(baseBody.svgContent).toContain('bodyCheekBlush');
+    expect(baseBody.svgContent).toContain('bodySkinSoftGrad');
+    expect(baseBody.svgContent).toContain('camisoleGrad');
   });
 });
 

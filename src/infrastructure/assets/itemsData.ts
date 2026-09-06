@@ -3,6 +3,7 @@ import { SlotCategory } from '../../domain/models/SlotCategory';
 import { InMemoryItemRepository } from '../repositories/InMemoryItemRepository';
 import { ANIME_ITEMS } from './animeItemsData';
 import { TRENDY_CUTE_ITEMS } from './trendyCuteItemsData';
+import { EXTRA_CUTE_ITEMS } from './extraCuteItemsData';
 
 export const ALL_ITEMS: readonly Item[] = [
   // ==========================================
@@ -502,26 +503,99 @@ export const ALL_ITEMS: readonly Item[] = [
     slotCategory: SlotCategory.BASE_BODY,
     isRemovable: false,
     svgContent: `
-      <!-- Neck & Chest Base -->
-      <path d="M 143 145 L 143 168 L 132 175 C 122 180 120 195 120 210 L 120 240 L 180 240 L 180 210 C 180 195 178 180 168 175 L 157 168 L 157 145 Z" fill="#ffedd5"/>
-      <!-- Arms -->
-      <path d="M 124 180 C 112 205 108 235 106 270 C 108 275 116 276 118 270 C 122 245 126 215 133 190 Z" fill="#ffedd5"/>
-      <path d="M 176 180 C 188 205 192 235 194 270 C 192 275 184 276 182 270 C 178 245 174 215 167 190 Z" fill="#ffedd5"/>
-      <!-- Legs -->
-      <path d="M 132 235 L 130 350 C 130 358 143 358 143 350 L 147 235 Z" fill="#ffedd5"/>
-      <path d="M 153 235 L 157 350 C 157 358 170 358 170 350 L 168 235 Z" fill="#ffedd5"/>
-      <!-- Head Contour -->
-      <ellipse cx="150" cy="115" rx="46" ry="43" fill="#ffedd5"/>
-      <!-- Chin / Jawline tapering -->
-      <path d="M 108 120 Q 150 165 192 120 Z" fill="#ffedd5"/>
-      <!-- Ears -->
-      <ellipse cx="103" cy="118" rx="6" ry="9" fill="#ffedd5"/>
-      <ellipse cx="197" cy="118" rx="6" ry="9" fill="#ffedd5"/>
-      <!-- Nose subtle dot -->
-      <circle cx="150" cy="122" r="1.5" fill="#fbcfe8"/>
-      <!-- Subtle underwear -->
-      <rect x="130" y="235" width="40" height="25" rx="5" fill="#ffffff" opacity="0.6"/>
-      <rect x="132" y="195" width="36" height="15" rx="4" fill="#ffffff" opacity="0.6"/>
+      <defs>
+        <!-- Soft glowing anime skin gradient -->
+        <linearGradient id="bodySkinSoftGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#fffbf7"/>
+          <stop offset="50%" stop-color="#fff0e5"/>
+          <stop offset="100%" stop-color="#ffe4d6"/>
+        </linearGradient>
+        <radialGradient id="bodyFaceGlow" cx="50%" cy="42%" r="50%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5"/>
+          <stop offset="70%" stop-color="#fff5ee" stop-opacity="0.1"/>
+          <stop offset="100%" stop-color="#ffdcd0" stop-opacity="0.25"/>
+        </radialGradient>
+        <!-- Soft cheek blush radial gradient -->
+        <radialGradient id="bodyCheekBlush" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fb7185" stop-opacity="0.6"/>
+          <stop offset="60%" stop-color="#fda4af" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="#fda4af" stop-opacity="0"/>
+        </radialGradient>
+        <!-- Cute pastel camisole gradient -->
+        <linearGradient id="camisoleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#fff1f2"/>
+          <stop offset="100%" stop-color="#fce7f3"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Neck & Delicate Torso -->
+      <path d="M 143 145 L 143 168 L 132 175 C 122 180 120 195 120 210 L 120 240 L 180 240 L 180 210 C 180 195 178 180 168 175 L 157 168 L 157 145 Z" fill="url(#bodySkinSoftGrad)"/>
+
+      <!-- Legs with slender anime silhouette & gentle knee contour -->
+      <path d="M 132 235 L 130 350 C 130 358 143 358 143 350 L 147 235 Z" fill="url(#bodySkinSoftGrad)"/>
+      <path d="M 153 235 L 157 350 C 157 358 170 358 170 350 L 168 235 Z" fill="url(#bodySkinSoftGrad)"/>
+      <!-- Soft knee blush / shine -->
+      <ellipse cx="136" cy="292" rx="3.5" ry="2" fill="#fda4af" opacity="0.35"/>
+      <ellipse cx="164" cy="292" rx="3.5" ry="2" fill="#fda4af" opacity="0.35"/>
+
+      <!-- Arms & Cute hands with delicate fingers -->
+      <path d="M 124 180 C 112 205 108 235 106 268 C 105 273 111 277 116 273 C 119 270 122 245 126 215 L 133 190 Z" fill="url(#bodySkinSoftGrad)"/>
+      <!-- Left cute anime thumb / palm -->
+      <path d="M 106 268 C 104 271 106 275 110 275 C 114 275 117 272 116 269 Z" fill="#ffdcd0"/>
+      
+      <path d="M 176 180 C 188 205 192 235 194 268 C 195 273 189 277 184 273 C 181 270 178 245 174 215 L 167 190 Z" fill="url(#bodySkinSoftGrad)"/>
+      <!-- Right cute anime thumb / palm -->
+      <path d="M 194 268 C 196 271 194 275 190 275 C 186 275 183 272 184 269 Z" fill="#ffdcd0"/>
+
+      <!-- Clavicle / Collarbone -->
+      <path d="M 137 172 Q 143 175 147 173" stroke="#f43f5e" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.25"/>
+      <path d="M 153 173 Q 157 175 163 172" stroke="#f43f5e" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.25"/>
+
+      <!-- Head & Cute Soft Chin Contour -->
+      <ellipse cx="150" cy="115" rx="46" ry="43" fill="url(#bodySkinSoftGrad)"/>
+      <path d="M 108 120 Q 150 166 192 120 Z" fill="url(#bodySkinSoftGrad)"/>
+      <ellipse cx="150" cy="115" rx="44" ry="41" fill="url(#bodyFaceGlow)"/>
+
+      <!-- Cute Ears with rosy inner ear contour -->
+      <ellipse cx="103" cy="118" rx="6" ry="9" fill="url(#bodySkinSoftGrad)"/>
+      <ellipse cx="104" cy="118" rx="3.5" ry="5.5" fill="#fecdd3" opacity="0.6"/>
+      <ellipse cx="197" cy="118" rx="6" ry="9" fill="url(#bodySkinSoftGrad)"/>
+      <ellipse cx="196" cy="118" rx="3.5" ry="5.5" fill="#fecdd3" opacity="0.6"/>
+
+      <!-- Precure / AiPri Style Rosy Blushing Cheeks -->
+      <ellipse cx="125" cy="126" rx="10" ry="6" fill="url(#bodyCheekBlush)"/>
+      <ellipse cx="175" cy="126" rx="10" ry="6" fill="url(#bodyCheekBlush)"/>
+      <!-- Cheek Sparkle Highlights & Cute Hatching -->
+      <circle cx="122" cy="124" r="1.5" fill="#ffffff" opacity="0.9"/>
+      <circle cx="126" cy="127" r="0.9" fill="#ffffff" opacity="0.8"/>
+      <path d="M 120 126 L 122 129 M 124 126 L 126 129" stroke="#f43f5e" stroke-width="0.75" stroke-linecap="round" opacity="0.45"/>
+      <circle cx="178" cy="124" r="1.5" fill="#ffffff" opacity="0.9"/>
+      <circle cx="174" cy="127" r="0.9" fill="#ffffff" opacity="0.8"/>
+      <path d="M 174 126 L 176 129 M 178 126 L 180 129" stroke="#f43f5e" stroke-width="0.75" stroke-linecap="round" opacity="0.45"/>
+
+      <!-- Dainty anime nose dot with soft highlight -->
+      <ellipse cx="150" cy="122" rx="1.2" ry="1.4" fill="#fb7185" opacity="0.6"/>
+      <circle cx="149.5" cy="121.5" r="0.5" fill="#ffffff" opacity="0.8"/>
+
+      <!-- Cute Idol Frill Underwear (Pastel Pink Camisole & Bloomers with Ribbon) -->
+      <!-- Camisole -->
+      <path d="M 131 195 Q 150 197 169 195 L 170 216 Q 150 220 130 216 Z" fill="url(#camisoleGrad)" stroke="#fbcfe8" stroke-width="0.8"/>
+      <!-- Delicate camisole shoulder straps -->
+      <path d="M 134 175 L 133 195 M 166 175 L 167 195" stroke="#fbcfe8" stroke-width="1.2" fill="none"/>
+      <!-- Chest Scallop Frills -->
+      <path d="M 131 195 Q 135 198 139 195 Q 143 198 147 195 Q 151 198 155 195 Q 159 198 163 195 Q 167 198 169 195" fill="none" stroke="#f472b6" stroke-width="0.8"/>
+      <!-- Tiny Center Ribbon with Gem -->
+      <path d="M 148 196 C 146 193 144 195 147 198 C 144 200 146 202 148 199" fill="#f43f5e"/>
+      <path d="M 152 196 C 154 193 156 195 153 198 C 156 200 154 202 152 199" fill="#f43f5e"/>
+      <circle cx="150" cy="197" r="1.5" fill="#fbbf24"/>
+
+      <!-- Bloomers / Panties with cute frill trims -->
+      <path d="M 129 233 Q 150 236 171 233 L 170 248 C 165 258 155 260 150 260 C 145 260 135 258 130 248 Z" fill="url(#camisoleGrad)" stroke="#fbcfe8" stroke-width="0.8"/>
+      <!-- Waist Frills -->
+      <path d="M 129 233 Q 133 236 137 233 Q 141 236 145 233 Q 149 236 153 233 Q 157 236 161 233 Q 165 236 171 233" fill="none" stroke="#f472b6" stroke-width="0.8"/>
+      <!-- Little Ribbon on Bloomers -->
+      <circle cx="150" cy="238" r="1.2" fill="#f43f5e"/>
+      <path d="M 148 238 C 146 236 145 238 148 240 M 152 238 C 154 236 155 238 152 240" stroke="#f43f5e" stroke-width="0.8" fill="none"/>
     `,
   }),
 
@@ -2325,6 +2399,7 @@ export const ALL_ITEMS: readonly Item[] = [
   }),
   ...ANIME_ITEMS,
   ...TRENDY_CUTE_ITEMS,
+  ...EXTRA_CUTE_ITEMS,
 ];
 
 export function createDefaultItemRepository(): InMemoryItemRepository {
